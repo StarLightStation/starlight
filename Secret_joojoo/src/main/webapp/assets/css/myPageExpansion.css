@@ -1,0 +1,255 @@
+/* ============================== (begin) mysubsciption.jsp ============================== */
+
+/* 글씨체 적용하기 */
+li.subsinfoText {
+    font-family: 'Noto Sans KR'; /* 가져온 웹 폰트의 이름을 지정 */
+    font-size: 18px; /* 원하는 글자 크기 지정 */
+}
+
+/* 스크롤바를 적용할 요소에 대한 스타일 */
+.side-bar-wrapper {
+    overflow: auto; /* 스크롤바를 표시할 수 있도록 설정 */
+    max-height: 360px; /* 스크롤바가 나타날 최대 높이를 지정 */
+    max-width: 1200px; /* 스크롤바가 나타날 최대 너비를 지정 */
+}
+
+.side-bar-wrapper2 {
+    overflow: auto; /* 스크롤바를 표시할 수 있도록 설정 */
+    max-height: 400px; /* 스크롤바가 나타날 최대 높이를 지정 */
+    max-width: 1500px; /* 스크롤바가 나타날 최대 너비를 지정 */
+}
+
+/* 쿠폰 카드의 스타일 */
+.coupon-card {
+    margin-bottom: 20px; /* 각 카드 아래에 여백을 추가하여 간격을 조절 */
+    max-height: 150px; /* 쿠폰 카드가 나타날 최대 높이를 지정 */
+    overflow: auto; /* 쿠폰 카드 내용이 넘칠 경우 스크롤바 표시 */
+}
+
+/* ============================== (end) mysubsciption.jsp ============================== */
+
+/* ============================== (begin) orderHistory.jsp ============================== */
+
+#orderHistoryTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#orderHistoryTable th, #orderHistoryTable td {
+    border: 1px solid #efefef;
+    text-align: left;
+    padding: 16px;
+    font-size: 15px;
+}
+
+#orderHistoryTable th {
+    background-color: #f2f2f2;
+}
+
+#orderHistoryTable tr:hover {
+    background-color: #fff0f2;
+}
+
+.member-info-wrapper {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #dddddd;
+}
+
+.name-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.side-bar-wrapper {
+    overflow: auto;
+    width: 100%;
+    height: 400px;
+}
+
+/* ============================== (end) orderHistory.jsp ============================== */
+
+/* ============================== (begin) writeReview.jsp ============================== */
+
+/* 스크롤바를 적용할 요소에 대한 스타일 */
+.side-bar-wrapper {
+    overflow: auto; /* 스크롤바를 표시할 수 있도록 설정 */
+    max-height: 300px; /* 스크롤바가 나타날 최대 높이를 지정 */
+}
+
+.order-item {
+    font-size: 20px; /* 원하는 글꼴 크기로 조절 */
+}
+
+/* ============================== (end) writeReview.jsp ============================== */
+
+/* ============================== (begin) updateReview.jsp ============================== */
+
+/* 스크롤바를 적용할 요소에 대한 스타일 */
+.side-bar-wrapper {
+    overflow: auto; /* 스크롤바를 표시할 수 있도록 설정 */
+    max-height: 350px; /* 스크롤바가 나타날 최대 높이를 지정 */
+}
+
+/* .btn 클래스에 대한 CSS 스타일 */
+.btn {
+    background-color: #FF4D63; /* 배경색 */
+    color: #fff; /* 글꼴 색상 */
+    border-radius: 5px; /* 둥근 테두리 반경 */
+    border: none; /* 테두리 없음 */
+    font-size: 12px; /* 글꼴 크기 조절 */
+    padding: 10px 30px; /* 내부 여백 조절 (상하 10px, 좌우 20px) */
+    cursor: pointer; /* 마우스 포인터 모양 변경 (손가락 모양) */
+}
+
+.order-item div.btn {
+   background-color: transparent;
+    color: #282828; /* 글꼴 색상 */
+    border-radius: 5px; /* 둥근 테두리 반경 */
+    border: none; /* 테두리 없음 */
+    font-size: 15px; /* 글꼴 크기 조절 */
+    padding: 6px 6px; /* 내부 여백 조절 (상하 10px, 좌우 20px) */
+    cursor: pointer; /* 마우스 포인터 모양 변경 (손가락 모양) */
+}
+
+/* 버튼에 호버 (마우스 오버) 효과 추가 */
+.btn:hover {
+   background-color: #CC3D4E;
+   color: #fff; /* 글꼴 색상 */
+}
+
+.order-item div.btn:hover {
+    color: #FF4D63; /* 호버 상태일 때 배경색 변경 */
+}
+
+/* .review-card 클래스에 대한 CSS 스타일 */
+.review-card {
+    background-color: #fafafa; /* 카드 배경색 */
+    border: 1px solid rgb(224, 224, 224); /* 카드 테두리 */
+    padding: 30px; /* 카드 내부 여백 조절 */
+    font-size: 16px; /* 글꼴 크기 설정 */
+    color: #333; /* 글꼴 색상 설정 */
+    border-radius: 5px; /* 둥근 테두리 반경 설정 */
+    width: 1000px; 
+    margin-bottom: 26px; 
+}
+.review-card p{
+   margin: 0 0 0.25rem 0;
+}
+
+.review-card-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 카드 내부 요소에 여백을 주는 스타일 */
+.review-card-btn h1 {
+    margin: 0;
+}
+
+
+/* updateReview.jsp -> 첫 번째 + 두 번째 Modal 관련 CSS */
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.modal-content {
+    background-color: white;
+    max-width: 400px;
+    margin: 10% auto;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* 버튼 스타일 */
+.button-container {
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button.true {
+    background-color: #ffffff; /* 예 버튼 색상 */
+    border: 1px solid #FF4D63;
+    width: 80px;
+    color: #FF4D63;
+
+}
+
+#closeButton {
+    background-color: #FF4D63; /* 아니오 버튼 색상 */
+    color: white;
+    border: 2px solid white; /* 테두리 스타일 및 색상 */
+    padding: 10px 20px; /* 내부 여백 (버튼 크기 조절) */
+    font-size: 14px; /* 폰트 크기 */
+    border-radius: 8px;
+}
+
+/* 모달 내의 textarea 스타일 */
+.modal-content textarea {
+    max-width: 100%; /* 모달 내에서 최대 가로 크기는 100%로 설정 */
+    max-height: 200px; /* 모달 내에서 최대 세로 크기를 원하는 크기로 설정 */
+    width: 100%; /* 가로 크기를 모두 채우도록 설정 */
+    resize: vertical; /* 세로 크기 조절 허용 */
+}
+
+/* updateReview.jsp -> 두 번째 Modal 별점 관련 CSS */
+
+.rating_box {
+    display: flex;
+}
+
+.rating {
+    position: relative;
+    color: #ddd;
+    font-size: 30px;
+    text-align: center;
+}
+
+.rating input {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.rating_star {
+    width: 0;
+    color: #ffc107;
+    position: absolute;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* ============================== (end) updateReview.jsp ============================== */

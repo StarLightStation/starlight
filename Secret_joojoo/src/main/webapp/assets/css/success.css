@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+/* 페이지 본문 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.payment-success {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* 성공 메시지 스타일 */
+.success-message {
+    color: #007bff;
+}
+
+.success-message h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* 실패 메시지 스타일 */
+.failure-message {
+    color: #ff0000;
+}
+
+.failure-message h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* 링크 스타일 */
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}

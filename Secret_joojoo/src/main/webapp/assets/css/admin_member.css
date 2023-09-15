@@ -1,0 +1,44 @@
+/* admin_member.css */
+
+/* ================================================================== */
+
+/* adminMemberInfo.tag */
+.nav-item {
+    margin-left: 20px; /* 왼쪽 여백 px */
+    margin-right: 20px; /* 오른쪽 여백 px */
+}
+
+/* adminMemberInfoReview.jsp */
+.flexContainer {
+    display: flex;
+    align-items: center; /* 수직 가운데 정렬 */
+}
+
+/* adminMemberInfoReview.jsp */
+.flexProperty {
+    flex: 1; /* 빈 공간을 고르게 분배 */
+    padding: 25px; /* 간격을 설정 */
+    vertical-align: middle; /* 수직 가운데 정렬 추가 */
+}
+
+/* adminMemberInfoReview.jsp */
+.pImageStyle {
+    width: 50%; /* 이미지를 부모 요소에 맞게 너비 설정 */
+    max-height: 100px; /* 이미지를 부모 요소 높이에 맞게 최대 높이 설정 */
+    vertical-align: middle; /* 수직 가운데 정렬 추가 */
+}
+
+/* admin_memberInfo*.jsp */
+th {
+    font-size: 16px; /* 원하는 글씨 크기로 조정 */
+    font-weight: bold; /* 글씨 굵기 설정 */
+}
+
+/* admin_memberInfo*.jsp */
+h6 > span > a > #goMemberListPage { /* 이거 작동 안함 */
+    background-color: #696cff;
+    color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(105, 108, 255, 0.4);
+    border: 0;
+    border-radius: 0.375rem;
+}
