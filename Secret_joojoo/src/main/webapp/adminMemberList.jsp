@@ -68,7 +68,7 @@
 
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">시크릿주주 / </span>[ 관리자 페이지 - 회원 관리 ]</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">회원정보 / </span>회원관리</h4>
 
         <!-- Basic Bootstrap Table -->
         <div class="card">
@@ -113,10 +113,6 @@
         </div>
         <!--/ Hoverable Table rows -->
 
-        <!-- Footer -->
-        <starlight:adminMemberFooter/>
-        <!-- / Footer -->
-
         <div class="content-backdrop fade"></div>
     </div>
     <!-- Content wrapper -->
@@ -129,15 +125,6 @@
 </div>
 <!-- / Layout wrapper -->
 
-<div class="buy-now">
-    <a
-            href="logout.do"
-            class="btn btn-danger btn-buy-now"
-            target="_blank"
-    >
-        메인 페이지로 돌아가기
-    </a>
-</div>
 
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->

@@ -26,13 +26,13 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/resource/gson-2.10.1.jar"/>
-	<classpathentry kind="lib" path="C:/resource/javaSDK-2.2.jar"/>
-	<classpathentry kind="lib" path="C:/resource/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/resource/jsoup-1.16.1.jar"/>
-	<classpathentry kind="lib" path="C:/resource/jstl-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/resource/mysql-connector-java-8.0.28.jar"/>
-	<classpathentry kind="lib" path="C:/resource/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="C:/resource/taglibs-standard-impl-1.2.5.jar"/>
+	<classpathentry kind="lib" path="E:/down/source/gson-2.10.1.jar"/>
+	<classpathentry kind="lib" path="E:/down/source/javaSDK-2.2.jar"/>
+	<classpathentry kind="lib" path="E:/down/source/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="E:/down/source/jsoup-1.16.1.jar"/>
+	<classpathentry kind="lib" path="E:/down/source/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="E:/down/source/mysql-connector-java-8.0.28.jar"/>
+	<classpathentry kind="lib" path="E:/down/source/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="E:/down/source/taglibs-standard-impl-1.2.5.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

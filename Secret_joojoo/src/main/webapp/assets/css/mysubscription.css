@@ -2508,7 +2508,7 @@ tr.table-head-row th:last-child {
     display: inline-block;
     margin: 0 auto;
     width: 1144px;
-    height: 500px;
+    height: 740px;
     border-radius: 10px;
     padding: 30px 60px;
 }
@@ -2781,11 +2781,30 @@ table.order-details tbody td {
 	border: 1px solid #ffc1c9;
     display: inline-block;
     margin: 14px auto;
-    width: 1020px;
+    width: 980px;
     border-radius: 10px;
     padding: 30px 30px;
     background-color: #fffbfc;
 }
+
+.coupon-body-used {
+	border: 1px solid #dddddd;
+    display: inline-block;
+    margin: 14px auto;
+    width: 980px;
+    border-radius: 10px;
+    padding: 30px 30px;
+    background-color: #f6f6f6;
+}
+
+.coupon-body-used .card-title {
+	color: #aaaaaa;
+}
+
+.coupon-body-used .card-text {
+	color: #aaaaaa;
+}
+
 
 div .card-text{
 	margin-bottom: 8px;

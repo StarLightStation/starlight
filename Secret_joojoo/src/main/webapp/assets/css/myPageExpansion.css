@@ -1,5 +1,7 @@
 /* ============================== (begin) mysubsciption.jsp ============================== */
 
+
+
 /* 글씨체 적용하기 */
 li.subsinfoText {
     font-family: 'Noto Sans KR'; /* 가져온 웹 폰트의 이름을 지정 */
@@ -15,15 +17,13 @@ li.subsinfoText {
 
 .side-bar-wrapper2 {
     overflow: auto; /* 스크롤바를 표시할 수 있도록 설정 */
-    max-height: 400px; /* 스크롤바가 나타날 최대 높이를 지정 */
-    max-width: 1500px; /* 스크롤바가 나타날 최대 너비를 지정 */
+    max-height: 600px; /* 스크롤바가 나타날 최대 높이를 지정 */
+    max-width: 1200px; /* 스크롤바가 나타날 최대 너비를 지정 */
 }
 
 /* 쿠폰 카드의 스타일 */
 .coupon-card {
     margin-bottom: 20px; /* 각 카드 아래에 여백을 추가하여 간격을 조절 */
-    max-height: 150px; /* 쿠폰 카드가 나타날 최대 높이를 지정 */
-    overflow: auto; /* 쿠폰 카드 내용이 넘칠 경우 스크롤바 표시 */
 }
 
 /* ============================== (end) mysubsciption.jsp ============================== */
@@ -103,7 +103,7 @@ li.subsinfoText {
 }
 
 .order-item div.btn {
-   background-color: transparent;
+	background-color: transparent;
     color: #282828; /* 글꼴 색상 */
     border-radius: 5px; /* 둥근 테두리 반경 */
     border: none; /* 테두리 없음 */
@@ -114,8 +114,8 @@ li.subsinfoText {
 
 /* 버튼에 호버 (마우스 오버) 효과 추가 */
 .btn:hover {
-   background-color: #CC3D4E;
-   color: #fff; /* 글꼴 색상 */
+	background-color: #CC3D4E;
+	color: #fff; /* 글꼴 색상 */
 }
 
 .order-item div.btn:hover {
@@ -134,7 +134,7 @@ li.subsinfoText {
     margin-bottom: 26px; 
 }
 .review-card p{
-   margin: 0 0 0.25rem 0;
+	margin: 0 0 0.25rem 0;
 }
 
 .review-card-btn {
@@ -253,3 +253,4 @@ li.subsinfoText {
 }
 
 /* ============================== (end) updateReview.jsp ============================== */
+

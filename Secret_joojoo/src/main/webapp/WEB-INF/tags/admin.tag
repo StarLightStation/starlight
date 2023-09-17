@@ -90,7 +90,7 @@
             <li class="menu-item">
               <a href="adminReview.do" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">리뷰관리</div>
+                <div data-i18n="Basic">신고관리</div>
               </a>
             </li>      
              <!-- 리뷰 끝-->     

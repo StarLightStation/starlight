@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ taglib tagdir="/WEB-INF/tags" prefix="starlight" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %> 
 <!DOCTYPE html>
 <html
   lang="en"
@@ -69,22 +70,25 @@
 
             <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4">
+                    <span class="text-muted fw-light"> 매출정보 / </span> 매출순위
               </h4>
 <button type="button" class="btn btn-primary" onclick="location.href='sale.do'">매출 관리</button> &nbsp;&nbsp;&nbsp;
 <button type="button" class="btn btn-primary" onclick="location.href='saleRank.do'">매출 순위</button> <br>
-<button type="button" class="btn btn-primarymenu" onclick="location.href='saleRank.do'">회원 결제누적 순위</button> &nbsp;&nbsp;&nbsp;
-<button type="button" class="btn btn-primarymenu" onclick="location.href='productRank.do'">많이 팔린 상품 </button> 
+<button type="button"  class="btn btn-outline-primary" onclick="location.href='saleRank.do'">회원 결제누적 순위</button> &nbsp;&nbsp;&nbsp;
+<button type="button"  class="btn btn-outline-primary" onclick="location.href='productRank.do'">많이 팔린 상품 </button> 
+<div style="text-align: right">
 <form action="productRankOption.do" method="post">
-    <select name="productRankOption">
+
+    <select name="productRankOption" id="selectTypeOpt" class="form-select color-dropdown" style="width: 180px; display: inline;">
         <option value="1" >누적 갯수로 보기</option>
         <option value="2">누적 금액으로 보기</option>
     </select>
-    <input type="submit" value="검색">
+    <input type="submit" class="btn btn-primary" value="검색" >
 </form>
-
+</div>
                <!-- Basic Bootstrap Table -->
                <div class="card">
-                <h5 class="card-header">결제 누적 순위</h5>
+                <h5 class="card-header">많이 팔린 상품</h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table table-hover">
                    
@@ -101,8 +105,8 @@
                     <tbody class="table-border-bottom-0">
                       <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i>${v.pName }</td>
-                        <td>${v.cnt }개</td>
-                        <td>${v.total }원</td>
+                        <td><fmt:formatNumber type="number" value ="${v.cnt }"/>개</td>
+                        <td><fmt:formatNumber type="number" value ="${v.total }"/>원</td>
                         <td>${v.cnt_rank }</td>
                       </tr>
                      
@@ -123,8 +127,8 @@
                     <tbody class="table-border-bottom-0">
                       <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i>${c.pName }</td>
-                        <td>${c.cnt }개</td>
-                        <td>${c.total }원</td>
+                        <td><fmt:formatNumber type="number" value ="${c.cnt }"/>개</td>
+                        <td><fmt:formatNumber type="number" value ="${c.total }"/>원</td>
                         <td>${c.cnt_rank }</td>
                       </tr>
                      
@@ -145,8 +149,8 @@
                     <tbody class="table-border-bottom-0">
                       <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i>${p.pName }</td>
-                        <td>${p.cnt }개</td>
-                        <td>${p.total }원</td>
+                        <td><fmt:formatNumber type="number" value ="${p.cnt }"/>개</td>
+                        <td><fmt:formatNumber type="number" value ="${p.total }"/>원</td>
                         <td>${p.total_rank }</td>
                       </tr>
                      
@@ -161,10 +165,7 @@
                 </div>
               </div>
               <!--/ Hoverable Table rows -->
-<br>
-            <!-- Footer -->
-            <starlight:admin_saleFooter/>
-            <!-- / Footer -->
+
 
             <div class="content-backdrop fade"></div>
           </div>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="starlight" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html lang="UTF-8">
@@ -42,7 +43,10 @@
 <body>
 
 <starlight:login/>
-
+<br>
+<br>
+<br>
+<div class="container">
 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
     <div class="card-body">
         <div class="card-details">
@@ -53,9 +57,13 @@
 
 <div id="payment-method"></div>
 <hr>
-<button id="payment-request-button" class="boxed-btn">${useCouponDiscountTotal}원 결제 하기</button>
+<fmt:formatNumber var="totalprice" value="${useCouponDiscountTotal}"/>
+<div id="orderName"><strong>예정 주문 상품 ｜ ${orderName}</strong></div>
 <hr>
-<div id="orderName"><strong>예정 주문 상품 : [ ${orderName} ]</strong></div>
+<button id="payment-request-button" class="boxed-btn">${totalprice}원 결제 하기</button>
+<br>
+<br>
+</div>
 
 <!-- end check out section -->
 

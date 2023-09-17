@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="starlight"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -96,7 +97,9 @@
                            <p id="product-carbonic-acid">탄산 : ${pdata.pSparkle != undefined ? pdata.pSparkle : '해당 없음'}</p>
                   </div>
                   <p id="product-sell">판매가격</p>
-                  <p id="product-price">${pdata.pPrice}<span>원</span>
+                  <p id="product-price">
+                  <fmt:formatNumber var="pPrice" value="${pdata.pPrice}"/>
+                  ${pPrice}<span>원</span>
                   </p>
                </div>
                <div class="product-empty"></div>

@@ -71,14 +71,8 @@
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
 
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">시크릿주주 / </span>[ 관리자 페이지 - 회원 관리 ]</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">회원정보 / 회원관리 / </span>회원 상세 정보</h4>
         <h5 class="fw-bold py-1 mb-3"><span class="text-muted fw-light">계정 정보 : </span>${mID} 님</h5>
-        <h6 class="fw-bold py-1 mb-3">
-            <span>
-                <a href="memberList.do" class="goMemberListPage">[ 회원 전체 목록 페이지로 돌아가기 ]
-                </a>
-            </span>
-        </h6>
 
         <div class="row">
             <div class="col-md-12">
@@ -89,7 +83,7 @@
                 <div class="card mb-4">
 
                     <a href="adminReviewPage.do">
-                        <h5 class="card-header">[ 리 뷰 정 보 확 인 ]</h5>
+                        <h5 class="card-header">리뷰 정보 확인</h5>
                     </a>
 
                     <!-- Account -->
@@ -99,15 +93,16 @@
 
                         <div class="row">
 
-                            <table border="2">
-
+                            <table class="table table-hover">
+                               <thead>
                                 <tr>
                                     <th>상품 이미지</th>
                                     <th>상품 이름</th>
                                     <th>리뷰 내용</th>
-                                    <th>회원 별점</th>
+                                    <th>리뷰 별점</th>
                                     <th>작성 날짜</th>
                                 </tr>
+                                </thead>
 
                                 <c:forEach var="board" items="${bdatas}">
                                     <tr>
@@ -124,7 +119,7 @@
 
                                         <div id="boardDiv">
 
-                                            <td class="flexProperty">[ ${board.pName} ]</td>
+                                            <td class="flexProperty">${board.pName}</td>
                                             <td class="flexProperty">
                                                 <!-- 리뷰 내용이 길면 글을 줄이고, 모달로 처리 하기. -->
 
@@ -145,7 +140,7 @@
                                                 </div>
 
                                             </td>
-                                            <td class="flexProperty">${board.bStar}⭐</td>
+                                            <td class="flexProperty">⭐${board.bStar}</td>
                                             <td class="flexProperty">${board.bDate}</td>
 
                                         </div>
@@ -222,10 +217,6 @@
         </div>
         <!-- / Content -->
 
-        <!-- Footer -->
-        <starlight:adminMemberFooter/>
-        <!-- / Footer -->
-
         <div class="content-backdrop fade"></div>
     </div>
     <!-- Content wrapper -->
@@ -235,17 +226,6 @@
 
 <!-- Overlay -->
 <div class="layout-overlay layout-menu-toggle"></div>
-</div>
-<!-- / Layout wrapper -->
-
-<div class="buy-now">
-    <a
-            href="logout.do"
-            class="btn btn-danger btn-buy-now"
-            target="_blank"
-    >
-        메인 페이지로 돌아가기
-    </a>
 </div>
 
 <!-- admin_member JS -->

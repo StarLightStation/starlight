@@ -1,39 +1,19 @@
-.error-container {
-    background-color: #7AA6C1;
-    border: 2px solid #0055A4;
-    border-radius: 15px;
-    padding: 30px;
-    text-align: center;
-    margin: 50px auto;
-    max-width: 1000px;
-}
-
-.error-title {
-    font-size: 30px;
-    color: #AB47BC;
-    margin-bottom: 15px;
-    white-space: normal; /* 텍스트 줄 바꿈 처리 */
-}
-
-.error-message {
-    font-size: 15px;
-    margin-bottom: 30px;
-    color: #303F9F;
-    white-space: normal; /* 텍스트 줄 바꿈 처리 */
-}
 
 .error-link {
-    display: inline-block;
-    background-color: #673AB7;
+	text-align: center;
+	width: 280px;
+    display: block;
+    margin: 0 auto;
+    background-color: #FF4D63;
     color: white;
-    padding: 15px 30px;
-    border-radius: 10px;
+    padding: 12px 26px;
+    border-radius: 8px;
     text-decoration: none;
     transition: background-color 0.3s;
-    font-size: 24px;
+    font-size: 16px;
     white-space: normal; /* 텍스트 줄 바꿈 처리 */
 }
 
 .error-link:hover {
-    background-color: #512DA8;
+    background-color: #CC3D4E;
 }

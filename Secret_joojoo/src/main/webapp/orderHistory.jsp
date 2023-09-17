@@ -2,6 +2,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="starlight" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +83,8 @@
                                     </td>
                                     <td>
                                         <c:forEach var="detail" items="${oddatas}">
-                                            ${detail.pPrice} 원 <br>
+                                        <fmt:formatNumber var="pPrice" value="${detail.pPrice}" />
+                                            ${pPrice} 원 <br>
                                         </c:forEach>
                                     </td>
                                     <td>
@@ -90,7 +92,8 @@
                                             ${detail.odCnt} 개 <br>
                                         </c:forEach>
                                     </td>
-                                    <td>${order.oPrice} 원</td>
+                                    <fmt:formatNumber var="oPrice" value="${order.oPrice}" />
+                                    <td>${oPrice} 원</td>
                                     <td>${order.oState}</td>
                                 </tr>
                             </c:forEach>

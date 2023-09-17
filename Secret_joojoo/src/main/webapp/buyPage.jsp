@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="starlight" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -174,7 +174,8 @@
                                             >
                                             <hr>
                                             <p>상품 이름 : [ ${subdata.subName} ]</p>
-                                            <p>가격 : [ ${subdata.subPrice} 원 ] / 수량 : [ 1 개 ]</p>
+                                            <fmt:formatNumber var="subPrice" value="${subdata.subPrice}"/>
+                                            <p>가격 : [ ${subPrice} 원 ] / 수량 : [ 1 개 ]</p>
                                             <hr>
                                         </div>
                                     </c:if>
@@ -187,7 +188,8 @@
                                                 <img src="assets/img/products/${cartItem.pImage}" style="width: 30%;">
                                                 <hr>
                                                 <p>상품 이름 : [ ${cartItem.pName} ]</p>
-                                                <p>가격 : [ ${cartItem.pPrice} 원 ] / 수량 : [ ${cartItem.tmpCnt} 개 ]</p>
+                                                <fmt:formatNumber var="pPrice" value="${cartItem.pPrice}"/>
+                                                <p>가격 : [ ${pPrice} 원 ] / 수량 : [ ${cartItem.tmpCnt} 개 ]</p>
                                                 <hr>
                                             </div>
                                         </c:forEach>
@@ -200,11 +202,13 @@
                                             <img src="assets/img/products/${pdata.pImage}" style="width: 30%;">
                                             <hr>
                                             <p>상품 이름 : [ ${pdata.pName} ]</p>
-                                            <p>가격 : [ ${pdata.pPrice} 원 ] / 수량 : [ ${pdata.tmpCnt} 개 ]</p>
+                                            <fmt:formatNumber var="pPrice" value="${pdata.pPrice}"/>
+                                            <p>가격 : [ ${pPrice} 원 ] / 수량 : [ ${pdata.tmpCnt} 개 ]</p>
                                             <hr>
                                         </div>
                                     </c:if>
-                                    <h4 id="productTotalPrice">예상 주문 총액 : ${total} 원</h4>
+                                    <fmt:formatNumber var="totalprice" value="${total}"/>
+                                    <h4 id="productTotalPrice">예상 주문 총액 : ${totalprice} 원</h4>
                                 </div>
                             </div>
                         </div>

@@ -2,6 +2,7 @@
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="starlight" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
 <!DOCTYPE html>
 <html
         lang="en"
@@ -70,15 +71,8 @@
 
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
-
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">시크릿주주 / </span>[ 관리자 페이지 - 회원 관리 ]</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">회원정보 / 회원관리 / </span>회원 상세 정보</h4>
         <h5 class="fw-bold py-1 mb-3"><span class="text-muted fw-light">계정 정보 : </span>${mID} 님</h5>
-        <h6 class="fw-bold py-1 mb-3">
-            <span>
-                <a href="memberList.do" class="goMemberListPage">[ 회원 전체 목록 페이지로 돌아가기 ]
-                </a>
-            </span>
-        </h6>
 
         <div class="row">
             <div class="col-md-12">
@@ -87,37 +81,41 @@
                 <starlight:adminMemberInfo/>
 
                 <div class="card mb-4">
-                    <h5 class="card-header">[ 주 문 정 보 확 인 ]</h5>
+                    <h5 class="card-header">주문 정보 확인</h5>
 
                     <!-- Account -->
                     <div class="card-body">
-                        <form id="updateOrderForm" action="안쓰는 기능.do" method="POST" onsubmit="return false">
+                        <form id="updateOrderForm" method="POST" onsubmit="return false">
 
-                            <div class="row">
+                            <div class="row" >
 
                                 <!-- 맵 == orderDatas == orderEntry -->
                                 <c:forEach var="orderEntry" items="${orderDatas}">
+                                <div style="border: 1px solid #ccc; margin-bottom: 30px; background-color: #fdfdfd; border-radius: 5px;">
 
                                     <!-- 맵 키 == orderEntry.key == key -->
                                     <!-- <c:set var="key" value="orderEntry.key"></c:set> -->
 
+                                    
+                                    <br>
+                                    <h5 class="mb-0" style="color: #696cff; padding-bottom: 10px;"><strong>주문 정보</strong></h5>
+                                    <p class="mb-0">주문 날짜: ${orderEntry.key.oDate}</p>
+                                    <p class="mb-0">총 구매 가격: <fmt:formatNumber  type="number" value="${orderEntry.key.oPrice}"/>원</p>
+                                    <p class="mb-0">주문 상태: ${orderEntry.key.oState}</p>
+                                    <p class="mb-0">주문 주소지: ${orderEntry.key.oAddress}</p>
                                     <hr>
 
-                                    <h5>[ 주문 정보 ]</h5>
-                                    <p>주문 날짜: ${orderEntry.key.oDate}</p>
-                                    <p>총 구매 가격: ${orderEntry.key.oPrice}(원)</p>
-                                    <p>주문 상태: ${orderEntry.key.oState}</p>
-                                    <p>주문 주소지: ${orderEntry.key.oAddress}</p>
-
-                                    <h5>[ 상품 정보 ]</h5>
-                                    <table border="2">
+                                    <h5 class="mb-0" style="color: #696cff; padding-bottom: 10px;"><strong>상품 정보</strong></h5>
+                                    <table class="table table-hover">
+                                    <thead>
                                         <tr>
                                             <th>상품 이미지</th>
                                             <th>상품 이름</th>
                                             <th>상품 가격</th>
                                             <th>상품 개수</th>
                                         </tr>
-
+									</thead>
+									<tbody class="table-border-bottom-0">
                                         <!-- 맵 == orderEntry / 맵 키의 값 == orderEntry.value == value -->
                                         <c:forEach var="value" items="${orderEntry.value}">
                                             <tr>
@@ -126,18 +124,19 @@
                                                             alt="상품 이미지"
                                                             src="assets/img/products/${value.pImage}"
                                                             class="pImageStyle"
+                                                            style="width: 50px"
                                                     >
                                                 </td>
-                                                <td class="flexProperty">[ ${value.pName} ]</td>
-                                                <td class="flexProperty">${value.pPrice}(원)</td>
-                                                <td class="flexProperty">${value.odCnt}(개)</td>
+                                                <td class="flexProperty">${value.pName}</td>
+                                                <td class="flexProperty"><fmt:formatNumber  type="number" value="${value.pPrice}"/>원</td>
+                                                <td class="flexProperty"><fmt:formatNumber  type="number" value="${value.odCnt}"/>개</td>
                                             </tr>
                                         </c:forEach>
-
+</tbody>
                                     </table>
+                                    <br>
 
-                                    <hr>
-
+</div>
                                 </c:forEach>
 
                             </div>
@@ -161,10 +160,6 @@
     </div>
     <!-- / Content -->
 
-    <!-- Footer -->
-    <starlight:adminMemberFooter/>
-    <!-- / Footer -->
-
     <div class="content-backdrop fade"></div>
 </div>
 <!-- Content wrapper -->
@@ -175,17 +170,7 @@
 <!-- Overlay -->
 <div class="layout-overlay layout-menu-toggle"></div>
 </div>
-<!-- / Layout wrapper -->
 
-<div class="buy-now">
-    <a
-            href="logout.do"
-            class="btn btn-danger btn-buy-now"
-            target="_blank"
-    >
-        메인 페이지로 돌아가기
-    </a>
-</div>
 
 <!-- admin_member JS -->
 <script src="admin/assets/js/admin_member.js"></script>

@@ -67,13 +67,12 @@
 
 		<div class="container-xxl flex-grow-1 container-p-y">
 			<h4 class="fw-bold py-3 mb-4">
-				<span class="text-muted fw-light"> 상품 관리/</span> 상품 목록
+				<span class="text-muted fw-light"> 상품정보 / </span>상품관리
 			</h4>
-			<button id="registerButton" type="button" class="btn btn-primary">상품
-				등록</button>
+			<button id="registerButton" type="button" class="btn btn-primary">상품 등록</button>
 			<!-- Basic Bootstrap Table -->
 			<div class="card">
-				<h5 class="card-header">[상품 목록]</h5>
+				<h5 class="card-header">상품 목록</h5>
 				<div class="table-responsive text-nowrap">
 
 					<table class="table table-hover">
@@ -134,31 +133,6 @@
 			</div>
 			<!--/ Hoverable Table rows -->
 
-			<!-- Footer -->
-			<footer class="content-footer footer bg-footer-theme">
-				<div
-					class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-					<div class="mb-2 mb-md-0">
-						©
-						<script>
-							document.write(new Date().getFullYear());
-						</script>
-						, made with ❤️ by <a href="https://themeselection.com"
-							target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
-					</div>
-					<div>
-						<a href="https://themeselection.com/license/"
-							class="footer-link me-4" target="_blank">License</a> <a
-							href="https://themeselection.com/" target="_blank"
-							class="footer-link me-4">More Themes</a> <a
-							href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-							target="_blank" class="footer-link me-4">Documentation</a> <a
-							href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-							target="_blank" class="footer-link me-4">Support</a>
-					</div>
-				</div>
-			</footer>
-			<!-- / Footer -->
 
 			<div class="content-backdrop fade"></div>
 		</div>

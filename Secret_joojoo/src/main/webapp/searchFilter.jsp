@@ -3,6 +3,7 @@
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="starlight" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +83,10 @@
      					</div>
      					<div class="product-information">
      		  			<h3>${v.pName}</h3>
-     			   		<p class="product-price" style="margin-bottom: 0;">${v.pPrice}<span>원</span></p>
+     			   		<p class="product-price" style="margin-bottom: 0;">
+     			   		<fmt:formatNumber var="pPrice" value="${v.pPrice}"/>
+     			   		${pPrice}<span>원</span>
+     			   		</p>
      		  			<p class="product-starscore">별점 ${v.pStarAvg} ｜ 리뷰 ${v.pStarCnt}</p>
      					</div>
     				</div>

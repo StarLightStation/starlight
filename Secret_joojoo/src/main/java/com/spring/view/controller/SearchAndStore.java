@@ -23,14 +23,14 @@ import com.spring.biz.product.ProductVO;
 public class SearchAndStore {
 	@Autowired
 	BoardService boardService;
-	
+
 	@Autowired
 	ProductService productService;
-	
+
 	@Autowired
 	DeclarationService declarationService;
 
-//============================================[검색 페이지 이동]====================================================
+	//============================================[검색 페이지 이동]====================================================
 	/*
 	 * 요청 값: VO에 존재 : X  / 세션: X  / VO에 없음: X
 	 * 요청 페이지: login.tag
@@ -40,13 +40,13 @@ public class SearchAndStore {
 	@RequestMapping(value = "/search.do",  method = RequestMethod.GET)
 	public String searchPage(ProductVO pVO, Model model) {
 		pVO.setSk("ALL");
-        int maxSize = productService.selectAll(pVO).size()-1;
-        model.addAttribute("maxSize", maxSize);
+		int maxSize = productService.selectAll(pVO).size();
+		model.addAttribute("maxSize", maxSize);
 		return "search.jsp";
 	}
-// =============================================================================================================
+	// =============================================================================================================
 
-//============================================[검색 페이지 비동기]====================================================
+	//============================================[검색 페이지 비동기]====================================================
 	/*
 	 * 요청 값: VO에 존재 : pName / 세션: X  / VO에 없음: X
 	 * 요청 페이지:search.jsp
@@ -65,9 +65,9 @@ public class SearchAndStore {
 		return gson.toJson(pdatas); // 상품 정보들을 Json으로 변환
 	}
 
-// =============================================================================================================
-	
-//============================================[필터 검색 페이지 이동]====================================================
+	// =============================================================================================================
+
+	//============================================[필터 검색 페이지 이동]====================================================
 	/*
 	 * 요청 값: VO에 존재 : pCategory, pSweet, pSour, pSparkle, pAlcohol, pName  / 세션: X  / VO에 없음: X
 	 * 요청 페이지: search.jsp / store.jsp
@@ -83,8 +83,8 @@ public class SearchAndStore {
 
 		return "searchFilter.jsp";
 	}
-// =============================================================================================================
-//============================================[스토어 페이지 이동]====================================================
+	// =============================================================================================================
+	//============================================[스토어 페이지 이동]====================================================
 	/*
 	 * 요청 값: VO에 존재 : X  / 세션: X  / VO에 없음: X
 	 * 요청 페이지: login.tag
@@ -99,8 +99,8 @@ public class SearchAndStore {
 
 		return "store.jsp";
 	}
-// =============================================================================================================
-//============================================[스토어 상세 페이지 이동]====================================================
+	// =============================================================================================================
+	//============================================[스토어 상세 페이지 이동]====================================================
 	/*
 	 * 요청 값: VO에 존재 : pNum  / 세션: X  / VO에 없음: X
 	 * 요청 페이지: searchFilter.jsp , store.jsp
@@ -111,9 +111,14 @@ public class SearchAndStore {
 	public String detail(BoardVO bVO, DeclarationVO dVO, ProductVO pVO, Model model, HttpSession session){
 
 		pVO = productService.selectOne(pVO);//상품 하나 정보 
+
+		if(pVO == null) {
+			return "fallback/goback.jsp";
+		}
+		
 		bVO.setSk("PRODUCT");//필요한 SK 세팅청
 		model.addAttribute("pdata",pVO);//View로 상품 정보 전달
-			
+
 		String mID=(String) session.getAttribute("mID"); 
 		dVO.setmID(mID);
 
@@ -121,18 +126,18 @@ public class SearchAndStore {
 		System.out.println(dVO);
 		dVO.setSk("MEMBER_DECLARATION");
 		List<DeclarationVO> ddatas = declarationService.selectAll(dVO);// 신고 당한 리뷰 정보들
-		
+
 		System.out.println("1111 : "+bVO);
 		System.out.println("2222 : "+bdatas);
 		System.out.println("3333 : "+ddatas);
-		
+
 		if(bdatas != null) { //리뷰가 존재 한다면
 			for(int i=0; i<bdatas.size(); i++) { 
 				bdatas.get(i).setCheck(false);  // 신고 버튼 활성화 셋팅
 				for(int j=0; j<ddatas.size(); j++) {
 					if(bdatas.get(i).getbNum()==ddatas.get(j).getbNum()) { // 신고한 내역이 있다면,
-							bdatas.get(i).setCheck(true); // 신고 버튼 비활성화 셋팅
-							break;
+						bdatas.get(i).setCheck(true); // 신고 버튼 비활성화 셋팅
+						break;
 					}
 				}
 				System.out.println(bdatas.get(i).isCheck());
@@ -141,6 +146,6 @@ public class SearchAndStore {
 		}
 		return "detail.jsp";
 	}
-// =============================================================================================================
+	// =============================================================================================================
 
 }

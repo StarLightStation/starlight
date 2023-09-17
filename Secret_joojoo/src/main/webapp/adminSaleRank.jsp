@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ taglib tagdir="/WEB-INF/tags" prefix="starlight" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %> 
 <!DOCTYPE html>
 <html
   lang="en"
@@ -71,16 +72,18 @@
 
             <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4">
+              	<span class="text-muted fw-light"> 매출정보 / </span> 매출순위
               </h4>
 		<button type="button" class="btn btn-primary" onclick="location.href='sale.do'">매출 관리</button> &nbsp;&nbsp;&nbsp;
 		<button type="button" class="btn btn-primary" onclick="location.href='saleRank.do'">매출 순위</button> <br>
-		<button type="button" class="btn btn-primarymenu" onclick="location.href='saleRank.do'">회원 결제누적 순위</button> &nbsp;&nbsp;&nbsp;
-		<button type="button" class="btn btn-primarymenu" onclick="location.href='productRank.do'">많이 팔린 상품 </button> <br>
+		<button type="button" class="btn btn-outline-primary" onclick="location.href='saleRank.do'">회원 결제누적 순위</button> &nbsp;&nbsp;&nbsp;
+		<button type="button" class="btn btn-outline-primary" onclick="location.href='productRank.do'">많이 팔린 상품 </button> <br>
 
+<br>
                <!-- Basic Bootstrap Table -->
                <div class="card">
                
-                <h5 class="card-header"> 회원 결제 누적 순위</h5>
+                <h5 class="card-header"> 회원 결제누적 순위</h5>
                 <div class="table-responsive text-nowrap">
                    
                   <table class="table table-hover">
@@ -108,7 +111,7 @@
                         <input type="hidden" id="hiddenInput" style="border: none; background: none;" value=${ v.mID }>
                         </c:if>
                         </td>
-                        <td>${v.total_price} 원</td>
+                        <td><fmt:formatNumber type="number" value = "${v.total_price}"/> 원</td>
                         <td></td>
                         <td></td>
                       </tr>
@@ -225,9 +228,9 @@
                                  
                                  modalYear += "<p>  " + orderYear + "</p>";
                                  modalQuarter += "<p> " + orderQuarter + "</p>";
-                                 modalProduct += "<p> " + orderProduct + "원</p>";
-                                 modalSubs += "<p> " + orderSubs + "원</p>";
-                                 modalTotal += "<p> " + orderTotal + "원</p>";
+                                 modalProduct += "<p> " + orderProduct.toLocaleString("ko-KR") + "원</p>";
+                                 modalSubs += "<p> " + orderSubs.toLocaleString("ko-KR") + "원</p>";
+                                 modalTotal += "<p> " + orderTotal.toLocaleString("ko-KR") + "원</p>";
                               }
                                  modalMid += "<p>  " + orderMid + "</p>";
                               
@@ -258,10 +261,6 @@
                   //    }    
                       
                </script>
-
-            <!-- Footer -->
-           <starlight:admin_saleFooter/>
-            <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>
           <!-- Content wrapper -->

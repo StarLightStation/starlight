@@ -18,10 +18,10 @@ Version: 1.0
 
 #payment-request-button {
     background-color: #fff;
-    color: #007bff;
+    color: #FF4D63;
     font-size: 15px;
     padding: 15px 30px; /* 더 큰 내부 여백 */
-    border: 2px solid #007bff; /* 경계선 추가 */
+    border: 2px solid #FF4D63; /* 경계선 추가 */
     border-radius: 15px; /* 더 둥글게 */
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
@@ -29,7 +29,7 @@ Version: 1.0
 }
 
 #payment-request-button:hover {
-    background-color: #007bff;
+    background-color: #FF4D63;
     color: #fff;
 }
 
@@ -37,7 +37,7 @@ Version: 1.0
 
 #orderName {
     background-color: #fff;
-    color: #007bff;
+    color: #FF4D63;
     font-size: 14px;
     padding: 10px 20px; /* 내부 여백 조절 */
     border-radius: 5px; /* 둥근 테두리 설정 */
@@ -56,7 +56,7 @@ html {
 }
 
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Noto Sans KR", "Open Sans", sans-serif;
     font-weight: 400;
     font-size: 1rem;
     letter-spacing: 0.1px;
@@ -88,7 +88,7 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-    font-family: "Poppins", sans-serif;
+    font-family: "Noto Sans KR", "Poppins", sans-serif;
     font-weight: 700;
     margin: 0 0 1.25rem 0;
     color: #051922;
@@ -182,7 +182,7 @@ h6, .h6 {
 }
 
 p {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Noto Sans KR", "Open Sans", sans-serif;
     font-weight: 400;
     font-size: 1rem;
     letter-spacing: 0.1px;
@@ -447,7 +447,7 @@ p:last-child {
 }
 
 a.boxed-btn {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Noto Sans KR", 'Poppins', sans-serif;
     display: inline-block;
     background-color: rgb(0, 255, 255);
     color: rgb(255, 0, 255);
@@ -455,7 +455,7 @@ a.boxed-btn {
 }
 
 a.bordered-btn {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Noto Sans KR", 'Poppins', sans-serif;
     display: inline-block;
     color: #fff;
     border: 2px solid #F28123;
@@ -851,7 +851,7 @@ a.mobile-show {
     padding: 15px 30px;
     cursor: pointer;
     display: inline-block;
-    border-radius: 50px;
+    border-radius: 5px;
     font-weight: 700;
 }
 
@@ -1119,8 +1119,8 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #051922;
-    color: #F28123;
+    background-color: #CC3D4E;
+    color: #ffffff;
 }
 
 div.owl-controls, .owl-controls div {
@@ -1307,7 +1307,6 @@ a.mobile-show.search-bar-icon:hover {
     background-image: url(../img/hero-bg.jpg);
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 
 .hero-text {
@@ -1399,8 +1398,8 @@ html, body {
 }
 
 input[type="submit"] {
-    background-color: #F28123;
-    color: #051922;
+    background-color: #FF4D63;
+    color: #ffffff;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 15px;
@@ -1815,7 +1814,7 @@ span.comment-date {
     left: 0;
     top: 2px;
     content: "\f105";
-    font-family: "Font Awesome 5 Free";
+    font-family: "Noto Sans KR", "Font Awesome 5 Free";
     font-weight: 900;
 }
 
@@ -2366,7 +2365,7 @@ ul.social-link-team li a {
 }
 
 p.product-price {
-    font-family: 'Poppins', sans-serif;
+    font-family: '"Noto Sans KR", Poppins', sans-serif;
     font-size: 30px;
     font-weight: 700;
     margin-bottom: 15px;
@@ -2380,7 +2379,7 @@ p.product-price span {
 }
 
 a.cart-btn {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Noto Sans KR", 'Poppins', sans-serif;
     display: inline-block;
     background-color: #F28123;
     color: #fff;
@@ -2624,11 +2623,11 @@ tr.total-data td strong {
     left: 20px;
     top: 50%;
     content: "\f058";
-    font-family: "Font Awesome 5 Free";
+    font-family: "Noto Sans KR", "Font Awesome 5 Free";
     font-weight: 900;
     line-height: 22px;
     margin-top: -11px;
-    color: #F28123;
+    color: #FF4D63;
 }
 
 .billing-address-form form p:last-child {

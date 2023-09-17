@@ -15,7 +15,7 @@
 </head>
 
 <body>
-
+<!-- 
 <div class="error-container">
     <div class="error-title">
         <c:out value="${exception}"/>
@@ -23,13 +23,14 @@
     <div class="error-message">
         <c:out value="${exception.message}"/>
     </div>
+    -->
     <img
             alt="에러 이미지"
-            src="assets/img/errorTest02.jpg"
-            style="max-width: 100%; height: auto; display: block; margin: 20px auto;"
+            src="assets/img/king505.gif"
+            style="width: 160%; height: auto; display: block; margin: 20px auto;"
     >
-    <a class="error-link" href="main.do">이미지 예쁘게 바꿔 주기 (다운 누나 ^ㅠ^)</a> <!-- 메인 페이지로 돌아가기 -->
-</div>
+    <a class="error-link" href="main.do" >메인 페이지로 돌아가기</a> <!-- 메인 페이지로 돌아가기 -->
+
 
 </body>
 

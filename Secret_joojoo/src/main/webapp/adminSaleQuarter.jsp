@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="starlight"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %> 
 <!DOCTYPE html>
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr"
 	data-theme="theme-default" data-assets-path="admin/assets/"
@@ -66,6 +67,7 @@
 
 		<div class="container-xxl flex-grow-1 container-p-y">
 			<h4 class="fw-bold py-3 mb-4">
+				<span class="text-muted fw-light"> 매출정보 / 매출관리 / </span> 분기별 매출
 			</h4>
 			<button type="button" class="btn btn-primary" onclick="location.href='sale.do'">매출 관리</button>
 			&nbsp;&nbsp;&nbsp;
@@ -91,9 +93,9 @@
 							<tbody class="table-border-bottom-0">
 								<tr>
 									<td><strong>${v.quarter} 분기</strong></td>
-									<td>${v.product_price }원</td>
-									<td>${v.subs_price}원</td>
-									<td>${v.total_price}원</td>
+									<td><fmt:formatNumber type="number" value = "${v.product_price }"/>원</td>
+									<td><fmt:formatNumber type="number" value ="${v.subs_price}"/>원</td>
+									<td><fmt:formatNumber type="number" value ="${v.total_price}"/>원</td>
 								</tr>
 							</tbody>
 						</c:forEach>
@@ -103,14 +105,6 @@
 			</div>
 			<!--/ Hoverable Table rows -->
 
-			
-					
-				
-
-
-					<!-- Footer -->
-					<starlight:admin_saleFooter/>
-					<!-- / Footer -->
 
 					<div class="content-backdrop fade"></div>
 				</div>

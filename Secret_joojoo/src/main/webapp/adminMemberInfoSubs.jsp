@@ -2,6 +2,7 @@
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="starlight" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
 <!DOCTYPE html>
 <html
         lang="en"
@@ -70,14 +71,8 @@
 
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">시크릿주주 / </span>[ 관리자 페이지 - 회원 관리 ]</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">회원정보 / 회원관리 / </span>회원 상세 정보</h4>
         <h5 class="fw-bold py-1 mb-3"><span class="text-muted fw-light">계정 정보 : </span>${mID} 님</h5>
-        <h6 class="fw-bold py-1 mb-3">
-            <span>
-                <a href="memberList.do" class="goMemberListPage">[ 회원 전체 목록 페이지로 돌아가기 ]
-                </a>
-            </span>
-        </h6>
 
         <div class="row">
             <div class="col-md-12">
@@ -86,7 +81,7 @@
                 <starlight:adminMemberInfo/>
 
                 <div class="card mb-4">
-                    <h5 class="card-header">[ 구 독 정 보 확 인 ]</h5>
+                    <h5 class="card-header">구독 정보 확인</h5>
 
                     <!-- Account -->
                     <div class="card-body">
@@ -95,19 +90,20 @@
 
                             <div class="row">
 
-                                <table border="2">
-
+                                <table class="table table-hover">
+									<thead>
                                     <tr>
                                         <th>구독 상품 이름</th>
                                         <th>구독 상품 가격</th>
                                         <th>구독 만료 기간</th>
                                     </tr>
+                                    </thead>
 
                                     <c:forEach var="subsinfo" items="${subsinfoDatas}">
 
                                         <tr>
-                                            <td>[ ${subsinfo.subName} ]</td>
-                                            <td>${subsinfo.subPrice}(원)</td>
+                                            <td>${subsinfo.subName}</td>
+                                            <td><fmt:formatNumber type ="number" value="${subsinfo.subPrice}"/>원</td>
                                             <td>${subsinfo.sInfoPeriod}</td>
                                         </tr>
                                     </c:forEach>
@@ -135,9 +131,6 @@
     </div>
     <!-- / Content -->
 
-    <!-- Footer -->
-    <starlight:adminMemberFooter/>
-    <!-- / Footer -->
 
     <div class="content-backdrop fade"></div>
 </div>
@@ -149,17 +142,7 @@
 <!-- Overlay -->
 <div class="layout-overlay layout-menu-toggle"></div>
 </div>
-<!-- / Layout wrapper -->
 
-<div class="buy-now">
-    <a
-            href="logout.do"
-            class="btn btn-danger btn-buy-now"
-            target="_blank"
-    >
-        메인 페이지로 돌아가기
-    </a>
-</div>
 
 <!-- admin_member JS -->
 <script src="admin/assets/js/admin_member.js"></script>

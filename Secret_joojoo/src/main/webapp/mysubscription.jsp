@@ -86,7 +86,9 @@
                     <hr>
                     <div class="side-bar-wrapper2">
                             <c:forEach var="coupon" items="${ucdatas}">
-                                        <div class="coupon-body">
+                                <c:choose>
+                                       <c:when test="${coupon.ucAble eq 1}">
+                                       <div class="coupon-body">
                                             <h5 class="card-title">${coupon.cName} 쿠폰</h5>
                                             <h6 class="card-text">할인율 ｜
                                                 <c:choose>
@@ -96,13 +98,26 @@
                                                 </c:choose>
                                             </h6>
                                             <h6 class="card-text">유효 기간 ｜ ${coupon.ucFdate}</h6>
-                                            <h6 class="card-text">사용 여부 ｜
-                                                <c:choose>
-                                                    <c:when test="${coupon.ucAble eq 1}"> 사용 가능 </c:when>
-                                                    <c:when test="${coupon.ucAble eq 0}"> 사용 완료 </c:when>
-                                                </c:choose>
+                                            <h6 class="card-text">사용 여부 ｜사용 가능
                                             </h6>
                                       </div>
+                                      </c:when>
+                                     <c:when test="${coupon.ucAble eq 0}">
+                                       <div class="coupon-body-used">
+                                            <h5 class="card-title">${coupon.cName} 쿠폰</h5>
+                                            <h6 class="card-text">할인율 ｜
+                                                <c:choose>
+                                                    <c:when test="${coupon.cDiscount eq 0.9}"> 10 % </c:when>
+                                                    <c:when test="${coupon.cDiscount eq 0.85}"> 15 % </c:when>
+                                                    <c:when test="${coupon.cDiscount eq 0.8}"> 20 % </c:when>
+                                                </c:choose>
+                                            </h6>
+                                            <h6 class="card-text">유효 기간 ｜ ${coupon.ucFdate}</h6>
+                                            <h6 class="card-text">사용 여부 ｜사용 완료
+                                            </h6>
+                                      </div>
+                                      </c:when>
+                                      </c:choose>
                             </c:forEach>
                     </div>
                </div>         

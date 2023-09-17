@@ -95,11 +95,11 @@ function calculateAndUpdateTotal_applied() {
     //  쿠폰 적용 및 업데이트.
     if (!isNaN(cDiscount) && !isNaN(sessionTotal)) {
         let discountTotal = sessionTotal * cDiscount;  //  쿠폰 할인율을 적용 하기.
-
+        let Total = discountTotal.toLocaleString(); // 숫자 포맷팅
         console.log('log : discountTotal : ' + discountTotal);
 
         let productTotalPrice = document.querySelector('#productTotalPrice');   //  예상 주문 총액을 보여주는 요소 가져 오기.
-        productTotalPrice.textContent = `예상 주문 총액 : ${discountTotal.toFixed(0)} 원`;
+        productTotalPrice.textContent = `예상 주문 총액 : ${Total} 원`;
     }
 
 }
@@ -164,7 +164,8 @@ function calculateAndUpdateTotal_disApplied() {
 
     if (!isNaN(sessionTotal)) {
         let productTotalPrice = document.querySelector('#productTotalPrice');   //  예상 주문 총액을 보여주는 요소 가져 오기.
-        productTotalPrice.textContent = `예상 주문 총액 : ${sessionTotal.toFixed(0)} 원`;
+        let Total = sessionTotal.toLocaleString(); // 숫자 포맷팅
+        productTotalPrice.textContent = `예상 주문 총액 : ${Total} 원`;
     }
 }
 

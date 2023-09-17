@@ -31,11 +31,10 @@ public class SubscriptionController {
     */
 
    @RequestMapping(value = "/subscription.do", method=RequestMethod.GET)
-   public String subscription() {
-
+   public String subscription(HttpSession session) {
+      session.removeAttribute("cartFlag");
       return "redirect:subscription.jsp";   //   구독 페이지.
    }
-
    //====================================================================================================
 
 

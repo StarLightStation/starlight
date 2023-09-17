@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="starlight" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -65,7 +66,8 @@
                     <c:set var="rnum" value="${v.rnum}"/>
                     <c:set var="mID" value="${v.mID}"/>
                     <c:set var="pName" value="${v.pName}"/>
-                    <c:set var="pPrice" value="${v.pPrice}"/>
+                    <c:set var="tmpPrice" value="${v.pPrice}"/>
+                    <fmt:formatNumber var="pPrice" value="${tmpPrice}"/>
                     <c:set var="pNum" value="${v.pNum}"/>
                     <c:set var="odNum" value="${v.odNum}"/>
                     <c:set var="oDate" value="${v.oDate}"/>

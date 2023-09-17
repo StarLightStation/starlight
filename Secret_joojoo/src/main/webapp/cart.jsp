@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="starlight" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <head>
     <meta charset="UTF-8">
@@ -85,12 +86,13 @@
                                 <td class="product-image"><img
                                         src="assets/img/products/${cartItem.pImage}" alt=""></td>
                                 <td class="product-name">${cartItem.pName}</td>
-                                <td class="product-price">${cartItem.pPrice}</td>
+                                <fmt:formatNumber var="pPrice" value="${cartItem.pPrice}"/>                                 
+                                <td class="product-price">${pPrice} 원</td>
                                 <td class="product-quantity"><input type="number"
                                                                     value="${cartItem.tmpCnt}" id="pQTY${cartItem.pNum}"
                                                                     min="1"
                                                                     data-key="${cartItem.pNum}"></td>
-                                <td class="product-total">${cartItem.tmpCnt * cartItem.pPrice}</td>
+                                <td class="product-total">${totalPrice}</td>
 
                             </tr>
                         </c:forEach>
@@ -104,6 +106,12 @@
 
                 // 처음 페이지가 로딩 될떄  존재하는 상품의 가격 갯수를 지정하는 초기값 함수   //UnitPriceSummary(); <-- 해당 함수호출은 시작되지만  계산을 못함
 
+                
+                function formatPrice(price) {
+                	 // 1000원 단위로 포맷팅
+                    return new Intl.NumberFormat('ko-KR').format(price) + ' 원';
+				}
+                
                 function UnitPriceSummary() {
 
                     // table-body-row 영역을 가지고옴
@@ -121,13 +129,11 @@
                         var sQty = quantityInputs[i].value;
 
                         // 위에 가져온 값을  넣어주는 역활
-                        rows[i].querySelectorAll("td")[5].innerText = "￦"
-                            + (sPrice * sQty).toString();
+                        rows[i].querySelectorAll("td")[5].innerText = formatPrice(sPrice * sQty);
                         sSubTotal = sSubTotal + (sPrice * sQty);
                     }
 
-                    document.getElementById("subTotalTD").innerText = "￦"
-                        + sSubTotal.toString(); // 숫자이기 때문에 .toString(); 로 String 형변환
+                    document.getElementById("subTotalTD").innerText = formatPrice(sSubTotal); // 숫자이기 때문에 .toString(); 로 String 형변환
                     //document.getElementById("shippingTD").innerText = "$"+sSubTotal.toString(); // 배달료 , 일단 $5로 고정
 
                     var shippingTDValue = document
@@ -135,8 +141,7 @@
                         .replace(/[^\d.-]/g, ''); // 숫자, 점(.), 음수(-)만 남깁니다.
                     var shippingValue = parseFloat(shippingTDValue); // 문자열을 숫자로 변환합니다.
 
-                    document.getElementById("totalTD").innerText = "￦"
-                        + (sSubTotal + shippingValue).toString();
+                    document.getElementById("totalTD").innerText = formatPrice(sSubTotal + shippingValue);
 
                 }
 
@@ -240,7 +245,7 @@
                         </tr>
                         <tr class="total-data">
                             <td><strong>그 외 : </strong></td>
-                            <td id="shippingTD">￦0</td>
+                            <td id="shippingTD">0원</td>
                         </tr>
                         <tr class="total-data">
                             <td><strong>전체 가격 : </strong></td>
