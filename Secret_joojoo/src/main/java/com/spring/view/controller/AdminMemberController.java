@@ -41,7 +41,7 @@ public class AdminMemberController {    //  관리자 페이지 (회원 정보 �
     /*
      * 요청 값 : VO에 존재 : X  / 세션 : X  / VO에 없음 : X
      * 요청 페이지 : ?
-     * 리턴 값 : model : mdatas(mdatas) / 세션 : X
+     * 리턴 값 : model : mdatas (회원 정보들) / 세션 : X
      * 기능 : 회원 전체 목록 보여주기. (memberList.jsp 이동)
      */
 
@@ -63,28 +63,22 @@ public class AdminMemberController {    //  관리자 페이지 (회원 정보 �
      * 요청 값 : VO에 존재 : mID  / 세션 : X / VO에 없음 : X
      * 요청 페이지 :
      * memberList.jsp (회원 목록 출력 페이지), adminMemberInfoMain.jsp, adminMemberInfoOrder.jsp, adminMemberInfoReview.jsp, adminMemberInfoSubs.jsp
-     * 리턴 값 : model : mdata (mVO) / 세션 : mID
+     * 리턴 값 : model : mdata (특정 회원 정보 데이터) / 세션 : mID
      * 기능 : 회원 상세 정보 페이지로 이동 하기. (memberInfoMain.jsp 이동)
      */
 
     @RequestMapping(value = "/memberInfoMain.do")
     public String memberInfoMain(MemberVO mVO, HttpSession session, Model model) {
 
-        System.out.println("log : mID : " + mVO.getmID());
-
-        mVO.setSk("INFO");
-
-        if (mVO.getmID() == null || mVO.getmID().equals("") || mVO.getmID().isBlank() || mVO.getmID().isEmpty()) {    //	유효성 검사.
+        if (mVO.getmID() == null || mVO.getmID().equals("") || mVO.getmID().isBlank() || mVO.getmID().isEmpty()) {    //   유효성 검사.
             String mID = (String) session.getAttribute("mID");
             mVO.setmID(mID);
         }
 
+        mVO.setSk("INFO");
         mVO = memberService.selectOne(mVO);
 
-        System.out.println("log : mVO : " + mVO);
-
         model.addAttribute("mdata", mVO);
-
         session.setAttribute("mID", mVO.getmID());
 
         return "adminMemberInfoMain.jsp";
@@ -93,19 +87,16 @@ public class AdminMemberController {    //  관리자 페이지 (회원 정보 �
     /*
      * 요청 값 : VO에 존재 : X / 세션 : mID / VO에 없음 : X
      * 요청 페이지 : adminMemberInfoMain.jsp (회원 상세 정보 페이지_ 메인)
-     * 리턴 값 : model : mdata (mVO) / 세션 : mID
+     * 리턴 값 : model : mdata (특정 회원 데이터) / 세션 : mID
      * 기능 : 회원 상세 정보 페이지로 이동 하기. (memberInfoMain.jsp 이동)
      */
 
     @RequestMapping(value = "/memberInfoMainDeleteMember.do")
     public String memberInfoMainDeleteMember(MemberVO mVO, HttpSession session) {
 
-        String mID = (String) session.getAttribute("mID");    //	세션에 있는 mID 가져오기.
-
-        System.out.println("log22222 : mID : " + mID);
+        String mID = (String) session.getAttribute("mID");    //   세션에 있는 mID 가져오기.
 
         mVO.setmID(mID);
-
         memberService.delete(mVO);
 
         return "redirect:memberList.do";    //  회원 목록 출력 페이지로 이동. (보낼 데이터 없어서 redirect)
@@ -119,7 +110,7 @@ public class AdminMemberController {    //  관리자 페이지 (회원 정보 �
      * 요청 값 : VO에 존재 : X  / 세션 : mID  / VO에 없음 : X
      * 요청 페이지 :
      * adminMemberInfoMain.jsp (회원 상세 정보 페이지_ 메인), adminMemberInfoReview.jsp, adminMemberInfoOrder.jsp, adminMemberInfoSubs.jsp
-     * 리턴 값 : model : bdatas(bdatas) / 세션 : X
+     * 리턴 값 : model : bdatas (회원이 작성한 모든 리뷰 데이터) / 세션 : X
      * 기능 : 회원이 작성한 모든 리뷰 보여주기. (memberInfoReview.jsp 이동)
      */
 
@@ -128,12 +119,8 @@ public class AdminMemberController {    //  관리자 페이지 (회원 정보 �
 
         String mID = (String) session.getAttribute("mID");    //  세션에 있는 mID 가져오기.
 
-        System.out.println("log : mID : " + mID);
-
         bVO.setmID(mID);
-
         bVO.setSk("MYPAGE");
-
         List<BoardVO> bdatas = boardService.selectAll(bVO); //  회원이 작성한 모든 리뷰.
 
         model.addAttribute("bdatas", bdatas);
@@ -149,7 +136,7 @@ public class AdminMemberController {    //  관리자 페이지 (회원 정보 �
      * 요청 값 : VO에 존재 : X  / 세션 : mID  / VO에 없음 : X
      * 요청 페이지 :
      * adminMemberInfoMain.jsp (회원 상세 정보 페이지_ 메인), adminMemberInfoReview.jsp, adminMemberInfoOrder.jsp, adminMemberInfoSubs.jsp
-     * 리턴 값 : model : orderDatas(orderMap) / 세션 : X
+     * 리턴 값 : model : orderDatas (특정 회원이 주문한 상품 정보 + 특정 회원이 주문한 상품 상세 정보 데이터) / 세션 : X
      * 기능 : 회원이 주문한 모든 주문 내역 보여주기. (memberInfoOrder.jsp 이동)
      */
 
@@ -160,23 +147,16 @@ public class AdminMemberController {    //  관리자 페이지 (회원 정보 �
 
         String mID = (String) session.getAttribute("mID");    //  세션에 있는 mID 가져오기.
 
-        System.out.println("log : mID : " + mID);
-
         oVO.setmID(mID);
-
         oVO.setSk("MYORDER");
         odVO.setSk("ORDERDETAIL");
-
         List<OrderVO> odatas = orderService.selectAll(oVO);
-        System.out.println("log : odatas : " + odatas);
 
         for (int i = 0; i < odatas.size(); i++) {
             oVO = odatas.get(i);
             int oNum = odatas.get(i).getoNum();
-            System.out.println("log : oNum : " + oNum);
             odVO.setoNum(oNum);
             List<OrderdetailVO> oddatas = orderdetailService.selectAll(odVO);
-            System.out.println("log : oddatas : " + oddatas);
             orderMap.put(oVO, oddatas); //  회원이 주문한 상품 정보 + 회원이 주문한 상품 상세 정보.
         }
 
@@ -191,22 +171,17 @@ public class AdminMemberController {    //  관리자 페이지 (회원 정보 �
      * 요청 값 : VO에 존재 : X  / 세션 : mID  / VO에 없음 : X
      * 요청 페이지 :
      * adminMemberInfoMain.jsp (회원 상세 정보 페이지_ 메인), adminMemberInfoReview.jsp, adminMemberInfoOrder.jsp, adminMemberInfoSubs.jsp
-     * 리턴 값 : model : subsinfoData(subsinfoData) / 세션 : X
+     * 리턴 값 : model : subsinfoData (회원 구독 정보 + 회원 구독 상세 정보 데이터) / 세션 : X
      * 기능 : 회원 상세 정보. (memberInfoSubs.jsp 이동)
      */
 
     @RequestMapping(value = "/memberInfoSubs.do")
-    public String memberInfoSubs(SubsinfoVO subsinfoVO, HttpSession session, Model model) {    //	subsinfoService.selectAll() 로 수정 예정.
+    public String memberInfoSubs(SubsinfoVO subsinfoVO, HttpSession session, Model model) {    //   subsinfoService.selectAll() 로 수정 예정.
 
         String mID = (String) session.getAttribute("mID");    //  세션에 있는 mID 가져오기.
 
-        System.out.println("log : mID : " + mID);
-
         subsinfoVO.setmID(mID);
-
         List<SubsinfoVO> subsinfoDatas = subsinfoService.selectAll(subsinfoVO); //  회원 구독 정보 + 회원 구독 상세 정보.
-
-        System.out.println("log : subsinfoDatas : " + subsinfoDatas);
 
         model.addAttribute("subsinfoDatas", subsinfoDatas);
 

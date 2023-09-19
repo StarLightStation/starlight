@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,27 +18,36 @@ import com.spring.biz.product.ProductVO;
 
 @Controller
 public class CartController {
+
 	@Autowired
 	ProductService productService; // pDAO
 
-//===========================================[장바구니 페이지 이동]===================================================
+	//===========================================[장바구니 페이지 이동]===================================================
+
 	/*
-	 * 요청 값 : VO에 존재 : X / 세션 : X / VO에 없음 : X 요청 페이지 : login.tag 리턴 값 : model : X /
-	 * 세션 : X 기능 : 장바구니 페이지로 이동.
+	 * 요청 값 : VO에 존재 : X / 세션 : X / VO에 없음 : X 
+	 * 요청 페이지 : login.tag
+	 * 리턴 값 : model : X / 세션 : X 
+	 * 기능 : 장바구니 페이지로 이동.
 	 */
+
 	@RequestMapping(value = "/cart.do")
 	public String cartPage() {
 
 		return "cart.jsp"; // 장바구니 페이지.
 	}
 
-// =============================================================================================================
-//=============================================[장바구니 추가]======================================================
+	// =============================================================================================================
+	
+	//=============================================[장바구니 추가]======================================================
+	
 	/*
-	 * 요청 값 : VO에 존재 : pNum / 세션 : X / VO에 없음 : tmpCnt 요청 페이지 : detail.jsp 리턴 값 :
-	 * model : pNum / 세션 : cart 기능 : 상품 상세 페이지 에서 특정한 상품을 장바구니에 담고, 다시 상품 상세 페이지로
-	 * 이동.
+	 * 요청 값 : VO에 존재 : pNum / 세션 : X / VO에 없음 : tmpCnt 
+	 * 요청 페이지 : detail.jsp 
+	 * 리턴 값 : model : pNum / 세션 : cart 
+	 * 기능 : 상품 상세 페이지 에서 특정한 상품을 장바구니에 담고, 다시 상품 상세 페이지로 이동.
 	 */
+	
 	@RequestMapping(value = "/cartAdd.do" )
 	public String cartAdd(ProductVO pVO, HttpSession session, Model model) {
 
@@ -65,18 +73,23 @@ public class CartController {
 			cart.add(pVO); // 장바구니에 저장.
 		}
 
-		session.setAttribute("cart", cart); // 새 장바구니 세션에 갱신.
 		model.addAttribute("pNum", pVO.getpNum()); // 상품 상세 페이지로 상품 번호 전송.
+		session.setAttribute("cart", cart); // 새 장바구니 세션에 갱신.
 
 		return "detail.do"; // 상품 상세 페이지.
 	}
 
-// =============================================================================================================
-//=============================================[장바구니 수정]======================================================	
+	// =============================================================================================================
+	
+	//=============================================[장바구니 수정]======================================================	
+	
 	/*
-	 * 요청 값 : VO에 존재 : pNum / 세션 : X / VO에 없음 : tmpCnt 요청 페이지 : cart.jsp 리턴 값 :
-	 * model : X / 세션 : cart 기능 : 비동기처리 방식 으로, 장바구니에 담아 놓은 특정한 상품의 개수 변경.
+	 * 요청 값 : VO에 존재 : pNum / 세션 : X / VO에 없음 : tmpCnt 
+	 * 요청 페이지 : cart.jsp 
+	 * 리턴 값 : model : X / 세션 : cart 
+	 * 기능 : 비동기처리 방식 으로, 장바구니에 담아 놓은 특정한 상품의 개수 변경.
 	 */
+	
 	@RequestMapping(value = "/update.do")
 	@ResponseBody
 	public String cartUpdate(ProductVO pVO, HttpSession session, @RequestParam Map<String, Object> map) {
@@ -94,12 +107,17 @@ public class CartController {
 		return "ok";
 	}
 
-// =============================================================================================================
-//=============================================[장바구니 삭제]======================================================
+	// =============================================================================================================
+	
+	//=============================================[장바구니 삭제]======================================================
+	
 	/*
-	 * 요청 값 : VO에 존재 : pNum / 세션 : X / VO에 없음 : X 요청 페이지 : cart.jsp 리턴 값 : model : X
-	 * / 세션 : cart 기능 : 비동기처리 방식 으로, 장바구니에 담아 놓은 특정한 상품을 삭제.
+	 * 요청 값 : VO에 존재 : pNum / 세션 : X / VO에 없음 : X 
+	 * 요청 페이지 : cart.jsp 
+	 * 리턴 값 : model : X / 세션 : cart 
+	 * 기능 : 비동기처리 방식 으로, 장바구니에 담아 놓은 특정한 상품을 삭제.
 	 */
+	
 	@RequestMapping(value = "/cartDelete.do")
 	public String cartDelete(ProductVO pVO, HttpSession session, @RequestParam("pNum") int pNum) {
 
@@ -115,6 +133,7 @@ public class CartController {
 
 		return "ok";
 	}
-// =============================================================================================================
+	
+	// =============================================================================================================
 
 }
