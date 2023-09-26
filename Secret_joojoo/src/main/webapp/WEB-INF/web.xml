@@ -35,43 +35,43 @@
 
     <error-page>
         <error-code>400</error-code>	<!-- Bad Request -->
-        <location>/fallback/goback.jsp</location>
+        <location>/error/error.jsp</location>
     </error-page>
     <error-page>
         <error-code>401</error-code>	<!-- Unauthorized -->
-        <location>/fallback/goback.jsp</location>
+        <location>/error/error.jsp</location>
     </error-page>
     <error-page>
         <error-code>402</error-code>	<!-- Payment Required -->
-        <location>/fallback/goback.jsp</location>
+        <location>/error/error.jsp</location>
     </error-page>
     <error-page>
         <error-code>403</error-code>	<!-- Forbidden -->
-        <location>/fallback/goback.jsp</location>
+        <location>/error/error.jsp</location>
     </error-page>
     <error-page>
         <error-code>404</error-code>	<!-- Not Found -->
-        <location>/fallback/goback.jsp</location>
+        <location>/error/error.jsp</location>
     </error-page>
     <error-page>
         <error-code>405</error-code>	<!-- Method Not Allowed -->
-        <location>/fallback/goback.jsp</location>
+        <location>/error/error.jsp</location>
     </error-page>
     <error-page>
         <error-code>406</error-code>	<!-- Not Acceptable -->
-        <location>/fallback/goback.jsp</location>
+        <location>/error/error.jsp</location>
     </error-page>
     <error-page>
         <error-code>407</error-code>	<!-- Proxy Authentication Required -->
-        <location>/fallback/goback.jsp</location>
+        <location>/error/error.jsp</location>
     </error-page>
     <error-page>
         <error-code>408</error-code>	<!-- Request Timeout -->
-        <location>/fallback/goback.jsp</location>
+        <location>/error/error.jsp</location>
     </error-page>
     <error-page>
         <error-code>409</error-code>	<!-- Conflict -->
-        <location>/fallback/goback.jsp</location>
+        <location>/error/error.jsp</location>
     </error-page>
 
     <!-- 이렇게 하는 방식은, 모든 500 예외에 대해서 error.jsp 페이지로 한번에 처리 하겠다는 의미 -->

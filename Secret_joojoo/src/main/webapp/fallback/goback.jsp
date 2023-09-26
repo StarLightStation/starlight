@@ -14,7 +14,7 @@
             title: '${title}',
             text: '${text}',
             icon: '${icon}',
-            confirmButtonText: '알 수 없는 요청 입니다. 이전 페이지로 돌아가기.'
+            confirmButtonText: '클라이언트 요청 처리에 실패 했습니다.'
         }).then((result) => {
             if (result.isConfirmed) {
                 window.history.go(-1);

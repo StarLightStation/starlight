@@ -82,7 +82,7 @@ public class AdminProductController {
 
 	/*
 	 * 요청 값 : VO에 존재 : fileUpload1, fileUpload2, 상품의 모든 정보  / 세션 : X / VO에 없음 : X 
-	 * 요청 페이지 : adminProduct.jsp
+	 * 요청 페이지 : adminProductInsertPage.jsp
 	 * 리턴 값 : model : X / 세션 : X
 	 * 기능 : 상품 등록
 	 */
@@ -126,7 +126,7 @@ public class AdminProductController {
 
 	/*
 	 * 요청 값 : VO에 존재 : 상품의 모든 정보 / 세션 : X / VO에 없음 : X 
-	 * 요청 페이지 : adminProduct.jsp
+	 * 요청 페이지 : adminProductUpdatePage.jsp
 	 * 리턴 값 : model : X / 세션 : X
 	 * 기능 : 상품의 모든 데이터 수정 하기
 	 */

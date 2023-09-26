@@ -267,8 +267,7 @@ public class BuyController {
 
          JSONObject jsonObject = (JSONObject) parser.parse(reader);
 
-         model.addAttribute("JSONObject", jsonObject);
-         model.addAttribute("isSuccess", isSuccess);
+         session.setAttribute("isSuccess", isSuccess);
 
          String mID = (String) session.getAttribute("mID");  //  세션 mID
          String address = (String) session.getAttribute("address");  //  주소 정보를 받아 오기.
@@ -407,7 +406,7 @@ public class BuyController {
 
       //  ---------------------------------------------------------------------------------------------------------------------------------
 
-      return "success.jsp";   //  결제 완료 페이지로 이동 하기.
+      return "redirect:success.jsp";   //  결제 완료 페이지로 이동 하기.
    }
 
    // ====================================================================================================

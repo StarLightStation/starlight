@@ -16,12 +16,11 @@
     <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <props>
-                <prop key="java.lang.ArithmeticException">error/error.jsp</prop>
-                <prop key="java.lang.NullPointerException">error/error.jsp</prop>
-                <prop key="com.spring.biz.common.ProductException">success.jsp</prop>
+                <prop key="java.lang.ArithmeticException">fallback/goback.jsp</prop>
+                <prop key="java.lang.NullPointerException">fallback/goback.jsp</prop>
             </props>
         </property>
-        <property name="defaultErrorView" value="error/error.jsp"/>
+        <property name="defaultErrorView" value="fallback/goback.jsp"/>
     </bean>
 
 </beans>

@@ -16,8 +16,6 @@
 
 <body>
 
-<c:set var="jsonObject" value="${JSONObject}"></c:set>
-
 <section class="payment-success">
 
     <c:if test="${isSuccess == true}">

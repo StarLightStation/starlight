@@ -11,25 +11,23 @@
 
     <!-- 스타일 -->
     <link rel="stylesheet" href="assets/css/errorPage.css">
+    
+    <script>
+        function goBack() {
+            window.history.back(); // 브라우저 뒤로 가기
+        }
+    </script>
 
 </head>
 
 <body>
-<!-- 
-<div class="error-container">
-    <div class="error-title">
-        <c:out value="${exception}"/>
-    </div>
-    <div class="error-message">
-        <c:out value="${exception.message}"/>
-    </div>
-    -->
+
     <img
             alt="에러 이미지"
-            src="assets/img/king505.gif"
-            style="width: 160%; height: auto; display: block; margin: 20px auto;"
+            src="assets/img/king404.gif"
+            style="width: 50%; height: auto; display: block; margin: 20px auto;"
     >
-    <a class="error-link" href="main.do" >메인 페이지로 돌아가기</a> <!-- 메인 페이지로 돌아가기 -->
+    <button class="error-link" onclick="goBack()">뒤로 가기</button> <!-- 메인 페이지로 돌아가기 -->
 
 
 </body>
