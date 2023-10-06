@@ -25,7 +25,7 @@
   }else if (yesterdayTotal == 0){
      document.getElementById("todayPercent").innerHTML = "어제 매출이 없어요 ㅠㅠ";
   }else{
-	  increase = Math.round((((todayTotal - yesterdayTotal) / yesterdayTotal) * 100));
+     increase = Math.round((((todayTotal - yesterdayTotal) / yesterdayTotal) * 100));
      document.getElementById("todayPercent").innerHTML = "전일 매출보다 "+increase+"% 증가 했습니다.";
   }
   
@@ -45,37 +45,32 @@
   for (var i = 0; i < dataYearElements.length; i++) {
     var vYear = dataYearElements[i].value;
     var vTotal = dataTotalElements[i].value;
-    
-    console.log("연도 로그 로그: " + vYear);
-    console.log("총매출 로그 로그: " + vTotal);
 
     yearArray.push(vYear);
     totalArray.push(vTotal);
   }
-
-  
-  console.log("연도 로그 : "+ yearArray);
-  console.log("총 로그 : "+ totalArray);
   
  var recentYear = yearArray[0]; // 올해 연도
- var beforeYear = yearArray[3]; // 작년 연도
- var    fourthValue = totalArray[0]; // 올해 연도 4분기
+ var beforeYear = yearArray[4]; // 작년 연도
+ var fourthValue = totalArray[0]; // 올해 연도 4분기
  var thirdValue = totalArray[1]; // 올해 연도 3분기
- var firstValue = totalArray[2];  // 올해 연도 1분기
- var fourthValue2 = totalArray[3]; // 작년 연도 4분기
- var thirdValue2 = totalArray[4]; // 작년 연도 3분기
- var secondValue2 = totalArray[5]; // 작년 연도 2분기
+ var secondValue = totalArray[2];  // 올해 연도 2분기
+ var firstValue = totalArray[3];  // 올해 연도 1분기
+ var fourthValue2 = totalArray[4]; // 작년 연도 4분기
+ var thirdValue2 = totalArray[5]; // 작년 연도 3분기
+ var secondValue2 = totalArray[6]; // 작년 연도 2분기
+ var firstValue2 = totalArray[7]; // 작년 연도 1분기
 
   const totalRevenueChartEl = document.querySelector('#totalRevenueChart'),
     totalRevenueChartOptions = {
       series: [
         {
           name: recentYear,
-          data: [firstValue, 0, thirdValue, fourthValue]
+          data: [firstValue, secondValue, thirdValue, fourthValue]
         },
         {
           name: beforeYear,
-          data: [0,secondValue2,thirdValue2,fourthValue2]
+          data: [firstValue2,secondValue2,thirdValue2,fourthValue2]
         }
       ],
       chart: {
