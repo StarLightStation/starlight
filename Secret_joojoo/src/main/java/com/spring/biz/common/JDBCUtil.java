@@ -13,10 +13,10 @@ public class JDBCUtil {
 
 //	static final String driverName_MySQL = "com.mysql.cj.jdbc.Driver";
 //	static final String url_MySQL = "jdbc:mysql://localhost/starlight";
-//	static final String userName = "HJM";
-//	static final String password = "0623";
+//	static final String userName = "root";
+//	static final String password = "1234";
 	private static final String driverName="oracle.jdbc.driver.OracleDriver";
-	private static final String url="jdbc:oracle:thin:@localhost:1521:xe";
+	private static final String url="jdbc:oracle:thin:@localhost:1521:orcl";
 	private static final String userName="STARLIGHT_FINAL";
 	private static final String password="1234";
 

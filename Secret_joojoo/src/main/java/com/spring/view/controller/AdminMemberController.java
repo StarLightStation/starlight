@@ -116,12 +116,14 @@ public class AdminMemberController {    //  관리자 페이지 (회원 정보 �
 
     @RequestMapping(value = "/memberInfoReview.do")
     public String memberInfoReview(BoardVO bVO, HttpSession session, Model model) {
-
+    	
         String mID = (String) session.getAttribute("mID");    //  세션에 있는 mID 가져오기.
 
-        bVO.setmID(mID);
         bVO.setSk("MYPAGE");
+        bVO.setmID(mID);
         List<BoardVO> bdatas = boardService.selectAll(bVO); //  회원이 작성한 모든 리뷰.
+        
+        System.out.println("bdatas : " + bdatas);
 
         model.addAttribute("bdatas", bdatas);
 

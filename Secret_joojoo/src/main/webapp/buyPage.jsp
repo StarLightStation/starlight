@@ -9,17 +9,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
-          content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/"
-    >
+          content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
     <!-- title -->
     <title>시크릿 주주 결제 페이지</title>
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
-   <!-- google font -->
-   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+          rel="stylesheet">
     <!-- fontawesome -->
     <link rel="stylesheet" href="assets/css/all.min.css">
     <!-- bootstrap -->
@@ -40,8 +41,8 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-            crossorigin="anonymous">
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
+
     </script>
 
 </head>
@@ -51,6 +52,25 @@
 <starlight:login/>
 
 <!-- check out section -->
+<div class="quickmenu d-flex text-right"
+     style="position: absolute; width: 100px; flex-direction: column; top: 250px; right: 50px; color: #fff; z-index: 999;">
+    <ul class="list-unstyled text-center">
+        <li>
+            <p class="text-dark">
+                <strong>최근 본 상품</strong>
+            </p>
+        </li>
+    </ul>
+    <c:forEach var="v" items="${recentList}">
+        <div class="card mb-2 product-wap rounded-0">
+            <div class="card mb-0 rounded-0">
+                <a href="detail.do?pNum=${v.pNum }"> <img class="card-img rounded-0 img-fluid w-100" alt="recentProduct"
+                                                          src="assets/img/products/${v.pImage }">
+                </a>
+            </div>
+        </div>
+    </c:forEach>
+</div>
 <div class="checkout-section mt-150 mb-150">
     <div class="container">
         <h4>[ 주문 / 결제 ]</h4>
@@ -68,12 +88,8 @@
                                 </h5>
                             </div>
                             <!-- collapse show (처음에 들어 올 때 아코디언이 내려와 있다) -->
-                            <div
-                                    id="collapseThree"
-                                    class="collapse show"
-                                    aria-labelledby="headingOne"
-                                    data-parent="#accordionExample"
-                            >
+                            <div id="collapseThree" class="collapse show" aria-labelledby="headingOne"
+                                 data-parent="#accordionExample">
                                 <div class="card-body">
                                     <div class="billing-address-form">
                                         <table class="table">
@@ -92,27 +108,18 @@
                                                 <!-- data-cDiscount 으로 속성을 정의 하기. -->
                                                 <!-- data-cName 으로 속성을 정의 하기. -->
                                                 <tr data-rowID="${coupon.ucNum}">
-                                                    <td>
-                                                        <strong>
-                                                            <a
-                                                                    href="#"
-                                                                    class="couponInfo"
+                                                    <td><strong> <a href="#" class="couponInfo"
                                                                     data-ucNum="${coupon.ucNum}"
                                                                     data-cDiscount="${coupon.cDiscount}"
-                                                                    data-cName="${coupon.cName}">
-                                                                [ ${coupon.cName} ]
-                                                            </a>
-                                                        </strong>
-                                                    </td>
-                                                    <td>
-                                                        <strong>
-                                                            <c:choose>
-                                                                <c:when test="${coupon.cDiscount eq 0.9}">[ 10 % ]</c:when>
-                                                                <c:when test="${coupon.cDiscount eq 0.85}">[ 15 % ]</c:when>
-                                                                <c:when test="${coupon.cDiscount eq 0.8}">[ 20 % ]</c:when>
-                                                            </c:choose>
-                                                        </strong>
-                                                    </td>
+                                                                    data-cName="${coupon.cName}"> [ ${coupon.cName}
+                                                        ] </a>
+                                                    </strong></td>
+                                                    <td><strong> <c:choose>
+                                                        <c:when test="${coupon.cDiscount eq 0.9}">[ 10 % ]</c:when>
+                                                        <c:when test="${coupon.cDiscount eq 0.85}">[ 15 % ]</c:when>
+                                                        <c:when test="${coupon.cDiscount eq 0.8}">[ 20 % ]</c:when>
+                                                    </c:choose>
+                                                    </strong></td>
                                                     <td>[ ${coupon.ucFdate} ]</td>
                                                     <td class="couponStatus">미적용</td>
                                                 </tr>
@@ -123,7 +130,8 @@
                                         <!-- 사용 가능한 쿠폰 적용 하기 모달창 -->
                                         <div id="couponModal" class="modal">
                                             <div class="modal-content">
-                                                <span class="close"></span> <!-- &times; -->
+                                                <span class="close"></span>
+                                                <!-- &times; -->
                                                 <h3>안내 문구는 자바스크립트를 사용해서, 동적으로 처리.</h3>
                                                 <button id="applyCoupon">사용</button>
                                                 <button id="cancelCoupon">사용 안 함</button>
@@ -133,7 +141,8 @@
                                         <!-- 쿠폰이 적용 되면 적용 됬다고 안내 해주는 모달창 -->
                                         <div id="couponAppliedModal" class="modal">
                                             <div class="modal-content">
-                                                <span class="close"></span> <!-- &times; -->
+                                                <span class="close"></span>
+                                                <!-- &times; -->
                                                 <h3>쿠폰이 적용 되었습니다 !</h3>
                                             </div>
                                         </div>
@@ -144,8 +153,8 @@
                         </div>
 
                         <!-- ======================================================================================= -->
-                        
-                         <div class="card single-accordion">
+
+                        <div class="card single-accordion">
                             <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
@@ -155,11 +164,8 @@
                                 </h5>
                             </div>
                             <!-- collapse show (처음에 들어 올 때 아코디언이 내려와 있다) -->
-                            <div
-                                    id="collapseTwo"
-                                    class="collapse show"
-                                    aria-labelledby="headingTwo"
-                                    data-parent="#accordionExample">
+                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                                 data-parent="#accordionExample">
                                 <div class="card-body">
                                     <div class="shipping-address-form"></div>
                                     <c:set var="data" value="${pdata}"/>
@@ -170,8 +176,7 @@
                                         <c:set var="orderName" value="${subdata.subName}"/>
                                         <div>
                                             <img src="assets/img/subscription/subdrink${subdata.subNum}.png"
-                                                 style="width: 30%;"
-                                            >
+                                                 style="width: 30%;">
                                             <hr>
                                             <p>상품 이름 : [ ${subdata.subName} ]</p>
                                             <fmt:formatNumber var="subPrice" value="${subdata.subPrice}"/>
@@ -226,13 +231,8 @@
                             </div>
 
                             <!-- collapse (처음에 들어 올 때 아코디언이 접혀 있다) -->
-                            <div
-
-                                    id="collapseOne"
-                                    class="collapse"
-                                    aria-labelledby="headingOne"
-                                    data-parent="#accordionExample"
-                            >
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                 data-parent="#accordionExample">
                                 <div class="card-body">
                                     <div class="billing-address-form">
                                         <form id="buyActionForm" action="buy.do">
@@ -253,11 +253,16 @@
                                                           placeholder="주문시 요청사항을 입력 하세요."></textarea>
                                             </p>
                                             <!-- 상품 상세 페이지에서 구매시, 상품의 개수를 hidden 값으로 전달 하기 -->
-                                            <!-- 쿠폰의 PK 프로퍼티와 쿠폰의 할인율 프로퍼티를 hidden 값으로 전달 하기 (자바스크립트) -->
+                                            <!-- 쿠폰의 PK 프로퍼티와 쿠폰의 할인율 프로퍼티를 hidden 값으로 전달 하기 -->
                                             <!-- 쿠폰을 사용 하지 않은 경우에는 ucNum과 cDiscount의 디폴트값을 0으로 세팅 -->
                                             <input type="hidden" name="orderName" value="${orderName}">
                                             <input type="hidden" name="oAddress" value="${address}">
-                                            <input type="hidden" name="tmpCnt" id="tmpCnt" data-tmpcnt="${pdata.tmpCnt}" value="${pdata.tmpCnt}">
+                                            <input
+                                                    type="hidden"
+                                                    name="tmpCnt"
+                                                    id="tmpCnt"
+                                                    data-tmpcnt="${pdata.tmpCnt}"
+                                                    value="${pdata.tmpCnt}">
                                             <input type="hidden" name="ucNum" value="0">
                                             <input type="hidden" name="cDiscount" value="0">
                                             <input type="submit" value="결제하기">
@@ -285,7 +290,7 @@
 <script>
     //  서버에서 가져온 세션값을 세션 스토리지에 저장 하기.
     let total = ${total}
-       sessionStorage.setItem('total', total);
+        sessionStorage.setItem('total', total);
 </script>
 
 <!-- 사용 가능한 쿠폰 적용 하기 모달창 + 쿠폰 적용 여부를 동적 으로 처리 하기 위한 Ajax() 메서드 + .. -->
@@ -294,6 +299,18 @@
 <script src="assets/js/jquery-1.11.3.min.js"></script>
 <!-- bootstrap -->
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<!-- scroll -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        var currentPosition = parseInt($(".quickmenu").css("top"));
+        $(window).scroll(function () {
+            var position = $(window).scrollTop();
+            $(".quickmenu").stop().animate({
+                "top": position + currentPosition + "px"
+            }, 1000);
+        });
+    });
+</script>
 <!-- count down -->
 <script src="assets/js/jquery.countdown.js"></script>
 <!-- isotope -->

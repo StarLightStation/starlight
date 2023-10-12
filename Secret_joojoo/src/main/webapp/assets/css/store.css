@@ -564,9 +564,9 @@ nav.main-menu ul li a {
 }
 
 nav.main-menu ul li.login-menu div span.login a {
-	font-size: 14px;
-	font-weight: 300;
-	color: black;
+   font-size: 14px;
+   font-weight: 300;
+   color: black;
 }
 
 nav.main-menu ul > li {
@@ -860,9 +860,9 @@ a.mobile-show {
 
 ----------------------------------------------------------------------------- */
 .footer-box {
-	width: 100%;
-	height: 240px;
-	border-top: 0.5px solid #e7e7e7;
+   width: 100%;
+   height: 240px;
+   border-top: 0.5px solid #e7e7e7;
 }
 
 h2.widget-title {
@@ -1465,8 +1465,8 @@ div.owl-controls, .owl-controls div {
 }
 
 .list-icon img{
-	width: 80px;
-	height: 80px;
+   width: 80px;
+   height: 80px;
 }
 
 .list-box {
@@ -1511,8 +1511,8 @@ div.owl-controls, .owl-controls div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-	background-color: #f5f5f5;
-	height: 700px;
+   background-color: #f5f5f5;
+   height: 700px;
 }
 
 .review-title{
@@ -1525,7 +1525,7 @@ div.owl-controls, .owl-controls div {
 .single-testimonial-slider{
   display: flex;
   justify-content: center;
-  align-items: center;	
+  align-items: center;   
 }
 
 .client-meta {
@@ -1721,9 +1721,9 @@ p.testimonial-body {
 }
 
 .random-box p {
-	font-size: 100px;
-	font-weight: 400;
-	color: #FF4D63;
+   font-size: 100px;
+   font-weight: 400;
+   color: #FF4D63;
 }
 
 .sub-title span {
@@ -1809,6 +1809,30 @@ p.testimonial-body {
 
 /* 반응형 스타일 */
 @media (max-width: 768px) {
+	.product-filters ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.product-information{
+  width: 50%;
+  height: 200px;
+  padding-top: 20px;
+  display: flex;
+margin-right : 0px;
+  flex-direction: column; /* 세로 방향으로 배치 */
+  align-items: center; /* 세로 방향으로 정렬 */
+  margin-left : 210px;
+}
+
+.product-information p.product-starscore{
+  font-size: 14px;
+  font-weight: 400;
+}
+
   .shop-banner {
     padding: 200px 0px 200px;
   }
@@ -1837,6 +1861,48 @@ p.testimonial-body {
     font-size: 36px;
   }
 }
+
+@media (max-width: 600px) {
+	.product-information{
+  width: 50%;
+  height: 200px;
+  padding-top: 20px;
+  display: flex;
+margin-right : 0px;
+  flex-direction: column; /* 세로 방향으로 배치 */
+  align-items: center; /* 세로 방향으로 정렬 */
+  margin-left : 170px;
+}
+
+	.product-filters ul {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.product-filters ul li.active {
+  border: 2px solid #FF4D63;
+  background-color: #FF4D63;
+  color: #fff;
+  margin: 0 auto;
+}
+
+.product-filters ul li {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0 auto;
+    border: 1px solid #646464;
+    color: #323232;
+    cursor: pointer;
+    padding: 0px;
+    border-radius: 25px;
+}
+
+
+	}
 
 
 /* -----------------------------------------------------------------------------
@@ -2425,14 +2491,14 @@ div.owl-controls, .owl-controls div {
 ----------------------------------------------------------------------------- */
 
 .product-best{
-	font-size: 32px;
-	font-weight: 700;
-	text-align: center;
-	margin-top: 200px;
+   font-size: 32px;
+   font-weight: 700;
+   text-align: center;
+   margin-top: 200px;
 }
 
 .product-best span{
-	color: #FF4D63;
+   color: #FF4D63;
 }
 
 .search-resultCnt{
@@ -2769,4 +2835,3 @@ table.order-details tbody td {
 .card.single-accordion {
   border: 1px solid #eeeeee;
 }
-

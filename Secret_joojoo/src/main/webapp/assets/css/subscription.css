@@ -2296,11 +2296,17 @@ p.testimonial-body {
     color: #fff;
 }
 
-/* 諛섏쓳�삎 �뒪���씪 */
+/* 반응형 웹  */
 @media (max-width: 768px) {
     .shop-banner {
         padding: 200px 0px 200px;
     }
+    
+.sub-header2 {
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 1.5;
+}
 
     .section-title {
         margin-top: 160px;

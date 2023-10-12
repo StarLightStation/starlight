@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.mapper.BoardMapper">
+
+    <insert id="insert">
+        INSERT
+        INTO BOARD (BNUM, MID, MNAME, PNUM, BCONTENT, BSTAR)
+        VALUES ((SELECT NVL(MAX(BNUM), 0) + 1 FROM BOARD), #{mID}, #{mName}, #{pNum}, #{bContent}, #{bStar})
+    </insert>
+
+    <select id="selectAll" resultType="com.spring.biz.board.BoardVO">
+        <choose>
+            <when test="sk == 'PRODUCT'">
+                SELECT ROW_NUMBER() OVER (ORDER BY BNUM)
+                AS RNUM, B.BNUM, B.MID, B.PNUM, B.BCONTENT, B.BSTAR, B.BDATE, B.MNAME, P.PNAME
+                FROM BOARD B INNER JOIN PRODUCT P ON B.PNUM = P.PNUM
+                WHERE P.PNUM = #{pNum}
+            </when>
+            <when test="sk == 'MYPAGE'">
+                SELECT ROW_NUMBER() OVER (ORDER BY BNUM)
+                AS RNUM, B.BNUM, B.MID, B.PNUM, B.BCONTENT, B.BSTAR, B.BDATE, B.MNAME, P.PNAME, P.PIMAGE
+                FROM BOARD B INNER JOIN PRODUCT P ON B.PNUM = P.PNUM
+                WHERE MID = #{mID}
+            </when>
+        </choose>
+    </select>
+
+    <select id="selectOne" resultType="com.spring.biz.board.BoardVO">
+        SELECT *
+        FROM BOARD
+        WHERE BNUM = #{bNum}
+    </select>
+
+    <update id="update">
+        UPDATE BOARD
+        SET BCONTENT = #{bContent},
+            BSTAR    = #{bStar}
+        WHERE BNUM = #{bNum}
+    </update>
+
+    <delete id="delete">
+        DELETE
+        FROM BOARD
+        WHERE BNUM = #{bNum}
+    </delete>
+
+</mapper>

@@ -20,9 +20,8 @@ public class ProductVO {   //   상품 / 주류
 	private MultipartFile fileUpload1;
 	private MultipartFile fileUpload2;
 
-	// static String FilePath = "C:\\Users\\hjms0\\Documents\\workspace-sts-3.9.11.RELEASE\\Secret_joojoo\\src\\main\\webapp\\assets\\img\\products\\";// 한진만
-	static String FilePath = "E:\\down\\sworkspace\\secret_joojoo\\src\\main\\webapp\\assets\\img\\products\\";
-	// 경로
+	//	경로
+	static String FilePath = "C:\\Users\\dhfg0\\Desktop\\spring\\springWS\\JOOJOO\\src\\main\\webapp\\assets\\img\\products\\";
 
 	public static String getFilePath() {
 		return FilePath;
@@ -148,24 +147,14 @@ public class ProductVO {   //   상품 / 주류
 		this.tmpCnt = tmpCnt;
 	}
 
-	/*
-   @Override
-   public String toString() {
-
-      return this.pName + "\n";
-   }
-	 */
-
-
 	@Override
 	public String toString() {
-
-		return "상품 : " + this.pName + " / 가격 : " + this.pPrice + " / 별점 평균 : " + this.pStarAvg
-				+ " / 상품 개수 : " + this.pCnt + " / 카테고리 : " + this.pCategory
-				+ " / 알콜 도수 : " + this.pAlcohol + " / 단맛 : " + this.pSweet
-				+ " / 신맛 : " + this.pSour + " / 탄산감 : " + this.pSparkle + "\n";
+		return "ProductVO [pNum=" + pNum + ", pName=" + pName + ", pPrice=" + pPrice + ", pImage=" + pImage + ", pCnt="
+				+ pCnt + ", pCategory=" + pCategory + ", pAlcohol=" + pAlcohol + ", pSweet=" + pSweet + ", pSour="
+				+ pSour + ", pSparkle=" + pSparkle + ", pImagedetail=" + pImagedetail + ", fileUpload1=" + fileUpload1
+				+ ", fileUpload2=" + fileUpload2 + ", sk=" + sk + ", pStarCnt=" + pStarCnt + ", pStarAvg=" + pStarAvg
+				+ ", tmpCnt=" + tmpCnt + "]";
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {   //   Object 타입의 매개변수 obj를 ProductVO 타입으로 다운 캐스팅 == 다형성

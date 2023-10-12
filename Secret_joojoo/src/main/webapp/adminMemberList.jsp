@@ -97,7 +97,7 @@
                             <td><a href="memberInfoMain.do?mID=${member.mID}">${member.mID}</a></td>
                             <td>${member.mPW}</td>
                             <td>${member.mName}</td>
-                            <td>${member.subscription == 0 ? '구독 ❌' : '구독 ⭕'}</td>
+                            <td>${member.subscription == 0 ? '구독 X' : '구독 O'}</td>
                             <td>${member.isAdmin == 0 ? '일반 회원' : '관리자'}</td>
                             <td>${member.mPhone}</td>
                             <td>${member.signUpKind}</td>

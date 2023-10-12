@@ -134,7 +134,7 @@
                         <input type="submit" value="구매하기" id="pay">
                      </c:if>
                      <c:if test="${empty mID}">
-                        <input type="submit" value="구매하기" id="pay" formaction="loginPage.do">
+                        <input type="submit" value="구매하기" id="pay" formaction="login.do">
                      </c:if>
                   </form>
                </div>
@@ -149,7 +149,7 @@
                   <div id="detailbox">
                      <c:forEach var="v" items="${bdatas}">
                         <div class="reviewBox">
-                           <p class="name">${v.mName}<span> ${v.bDate}</span>
+                           <p class="name">${v.mName}<span> <fmt:formatDate value="${v.bDate}" pattern="yyyy-MM-dd" /></span>
                            </p>
                            <p>별점: ${v.bStar}</p>
                            <p>${v.bContent}</p>

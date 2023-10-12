@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="starlight" %>
 <!DOCTYPE html>
 <html
@@ -141,7 +142,7 @@
 
                                             </td>
                                             <td class="flexProperty">⭐${board.bStar}</td>
-                                            <td class="flexProperty">${board.bDate}</td>
+                                            <td class="flexProperty"><fmt:formatDate value="${board.bDate}" pattern="yyyy-MM-dd" /></td>
 
                                         </div>
 

@@ -1,55 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd"
+>
 
+    <context:component-scan base-package="com.spring.biz"/>
 
-<beans
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://www.springframework.org/schema/beans">
+    <!-- DataSource 객체 생성 -->
+    <bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+        <property name="username" value="STARLIGHT_FINAL"/>
+        <property name="password" value="1234"/>
+    </bean>
 
-	<context:component-scan
-		base-package="com.spring.biz" />
+    <!-- JdbcTemplate 에 DI할 객체 생성 -->
+    <bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 
+    <!-- AOP를 어노테이션으로 하겠다는 의미 -->
+    <aop:aspectj-autoproxy/>
 
-	<!-- DataSource 객체 생성 -->
-	<bean class="org.apache.commons.dbcp.BasicDataSource"
-		id="dataSource" destroy-method="close">
-		<property name="driverClassName"
-			value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url"
-			value="jdbc:oracle:thin:@localhost:1521:xe" />
-		<property name="username" value="STARLIGHT_FINAL" />
-		<property name="password" value="1234" />
-	</bean>
+    <!-- 언어 설정 리졸버 -->
+    <!-- 리졸버지만 이름은 어댑터 -->
+    <!-- 요청 -> 웹 - 네트워크 - 웹 - OS -->
+    <!-- 필터는 웹요청 V - C -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 
-	<!-- JdbcTemplate에 DI할 객체 생성 -->
-	<bean class="org.springframework.jdbc.core.JdbcTemplate"
-		id="jdbcTemplate">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-	
-	 <!-- AOP를 어노테이션으로 하겠다는 의미 -->
-   	<aop:aspectj-autoproxy />
+        <property name="messageConverters">
+            <list>
+                <bean
+                        class="org.springframework.http.converter.StringHttpMessageConverter">
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <value>text/html;charset=UTF-8</value>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
 
-<!-- 언어설정 리졸버 -->
-<!-- 리졸버면서 이름이 어뎁터 -->
-<!-- 요청 -> 웹-네트워크-웹-OS -->
-<!-- 필터도 했는데??ㅇㅅㅇ??   필터는 웹요청 V-C    우린 웹 코딩하니까 상관없지     -->
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-		<property name="messageConverters">
-			<list>
-				<bean
-					class="org.springframework.http.converter.StringHttpMessageConverter">
-					<property name="supportedMediaTypes"> 
-						<list>
-							<value>text/html;charset=UTF-8</value>							
-						</list>
-					</property>
-				</bean>
-			</list>
-		</property>
+    </bean>
 
-	</bean>
+    <!-- 23.09.14 추가 -->
+    <!-- 트랜잭션 관리 활성화 하기 -->
+    <tx:annotation-driven/>
+
+    <!-- 23.09.15 추가 -->
+    <!-- 데이터 트랜잭션 에 DI할 객체 생성 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+<!--     23.09.26 추가
+    SqlSession
+    config 설정 파일 경로 설정
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+   		<property name="configLocation" value="classpath:mybatis-config.xml" />
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    23.09.26 추가
+    SqlSessionTemplate
+    생성자 주입 방식
+    <bean class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg ref="sqlSession"/>
+    </bean> -->
+    
+    <!--
+    사용 X
+    23.09.26 추가 
+    mapper 자동 스캔 설정
+    <mybatis-spring:scan base-package="com.spring.mapper"/>
+    -->
+
 </beans>

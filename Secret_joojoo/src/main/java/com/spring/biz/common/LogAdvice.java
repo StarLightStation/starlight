@@ -12,6 +12,11 @@ import org.springframework.stereotype.Service;
 @Aspect
 public class LogAdvice {	//	LogAdvice 모듈화 클래스.
 	
+	public static final String YELLOWCOLOR = "\u001B[33m";
+	public static final String BLUE = "\u001B[34m";
+	public static final String RED = "\u001B[31m";
+	public static final String EXITCOLOR = "\u001B[0m";
+	
 	@AfterReturning(pointcut = "PointcutCommon.aPointcut()", returning = "returnObj")
 	public void afterReturningLog(JoinPoint jp, Object returnObj) {	//	비즈니스 메서드 수행 후에 뜨는 로그.
 		
@@ -24,7 +29,7 @@ public class LogAdvice {	//	LogAdvice 모듈화 클래스.
 			
 			if(arr.length > 2) {
 				String log = arr[1] + "." + arr[2];
-				System.out.println("log : " + log + "\n");	//	예) XxxService.CRUD(args)
+				System.out.println(YELLOWCOLOR + "[ 모델 ] " + log + "\n" + EXITCOLOR);	//	예) XxxService.CRUD(XxxVO)
 			}
 		}
 		
@@ -42,8 +47,8 @@ public class LogAdvice {	//	LogAdvice 모듈화 클래스.
 			
 			if(arr.length > 2) {
 				String log = arr[1] + "." + arr[2];
-				System.out.println("log : " + log + "\n");	//	예) XxxService.CRUD(args)
-				System.out.println("예외 : " + exceptObj.getMessage() + "\n");	//	예외 메세지
+				System.out.println(YELLOWCOLOR + "[ 모델 ] " + log + "\n" + EXITCOLOR);	//	예) XxxService.CRUD(XxxVO)
+				System.out.println(RED + "[ 예외 발생 ] " + exceptObj.getMessage() + "\n" + EXITCOLOR);	//	예외 메세지
 			}
 		}
 		
@@ -52,28 +57,28 @@ public class LogAdvice {	//	LogAdvice 모듈화 클래스.
 	@AfterReturning(pointcut = "PointcutCommon.cPointcut()", returning = "returnObj")
 	public void afterReturningLogSelectOne(JoinPoint jp, Object returnObj) {
 		
-		System.out.println(Arrays.toString(jp.getArgs()) + "\n");
+		System.out.println(BLUE + "[ 사용된 인자 ] " + Arrays.toString(jp.getArgs()) + "\n" + EXITCOLOR);
 		
 	}	//	afterReturningLogSelectOne
 	
 	@AfterReturning(pointcut = "PointcutCommon.dPointcut()", returning = "returnObj")
 	public void afterReturningLogInsert(JoinPoint jp, Object returnObj) {
 		
-		System.out.println(Arrays.toString(jp.getArgs()) + "\n");
+		System.out.println(BLUE + "[ 사용된 인자 ] " + Arrays.toString(jp.getArgs()) + "\n" + EXITCOLOR);
 		
 	}	//	afterReturningLogInsert
 	
 	@AfterReturning(pointcut = "PointcutCommon.ePointcut()", returning = "returnObj")
 	public void afterReturningLogUpdate(JoinPoint jp, Object returnObj) {
 		
-		System.out.println(Arrays.toString(jp.getArgs()) + "\n");
+		System.out.println(BLUE + "[ 사용된 인자 ] " + Arrays.toString(jp.getArgs()) + "\n" + EXITCOLOR);
 		
 	}	//	afterReturningLogUpdate
 	
 	@AfterReturning(pointcut = "PointcutCommon.fPointcut()", returning = "returnObj")
 	public void afterReturningLogDelete(JoinPoint jp, Object returnObj) {
 		
-		System.out.println(Arrays.toString(jp.getArgs()) + "\n");
+		System.out.println(BLUE + "[ 사용된 인자 ] " + Arrays.toString(jp.getArgs()) + "\n" + EXITCOLOR);
 		
 	}	//	afterReturningLogDelete
 

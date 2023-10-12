@@ -49,7 +49,7 @@ public class AdminReviewController {
 
 	/*
 	 * 요청 값 : VO에 존재 : X  / 세션 : X  / VO에 없음 : X
-	 * 요청 페이지 : admin.tag
+	 * 요청 페이지 : X
 	 * 리턴 값 : model : X / 세션 : X
 	 * 기능 : 신고된 리뷰 전체 목록 이동 페이지
 	 */
@@ -87,7 +87,7 @@ public class AdminReviewController {
 
 	/*
 	 * 요청 값 : VO에 존재 : X  / 세션 : X  / VO에 없음 : X
-	 * 요청 페이지 : adminReview.jsp
+	 * 요청 페이지 : X
 	 * 리턴 값 : model : X / 세션 : X
 	 * 기능 : 해당 신고된 리뷰 상세페이지 이동 페이지
 	 */

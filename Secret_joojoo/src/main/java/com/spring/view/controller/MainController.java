@@ -25,7 +25,7 @@ public class MainController {
 	@RequestMapping(value = "/main.do")
 	public String main() {    //	메인 페이지 이동.
 
-		return "main.jsp";
+		return "redirect:main.jsp";
 	}
 
 	//	===================================================================================================================

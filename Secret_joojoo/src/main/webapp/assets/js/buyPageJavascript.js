@@ -138,7 +138,7 @@ cancelCouponButton.addEventListener("click", () => {
     ucNumInput = document.querySelector('input[name="ucNum"]');
     cDiscountInput = document.querySelector('input[name="cDiscount"]');
 
-    //  ucNumInput 요소의 value 속성 값을 0으로 저장 하고, cDiscountInput 요소의 value 속성 값을 0으로 저장 하기.
+    //  ucNumInput 요소의 value 속성 값에 0으로 저장 하고, cDiscountInput 요소의 value 속성 값을 0으로 저장 하기.
     ucNumInput.value = 0;
     cDiscountInput.value = 0;
 
